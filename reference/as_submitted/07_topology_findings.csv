@@ -1,0 +1,91 @@
+check,layer,key,severity,description,centroid_e,centroid_n,fid_volatile
+A_invalid,DRV_GLIM_VO_I,11/xs,fix,Ring Self-intersection[360167.253999999 5007707.7826],360187,5008081,7
+A_invalid,DRV_GLIM_rockfalls,0/xrf,fix,Ring Self-intersection[361407.795366024 5006955.55179016],361667,5006701,2
+B_duplicate,DRV_GLIM_Geomorphology,26,fix,identical geometry to 55,355258,5011445,24
+B_duplicate,DRV_GLIM_Geomorphology,55,fix,identical geometry to 26,355258,5011445,53
+B2_near_duplicate,DRV_GLIM_Geomorphology,26,check,IoU 1.000 with 55,355258,5011445,24
+B3_duplicate_across_layers,DRV_GLIM_O_I,654/s,fix,identical geometry present in Geomorphology 165,357886,5009042,913
+B3_duplicate_across_layers,DRV_GLIM_Geomorphology,165,fix,identical geometry present in O_I 654/s,357886,5009042,148
+C_degenerate,DRV_GLIM_Geomorphology,210,fix,"area 2.392 m2, 6 vertices, Shape_Area attribute 178967.3",355071,5013145,182
+C_degenerate,DRV_GLIM_Geomorphology,213,fix,"area 0.174 m2, 3 vertices, Shape_Area attribute 178967.3",355612,5012795,185
+C_degenerate,DRV_GLIM_Geomorphology,217,fix,"area 1.401 m2, 5 vertices, Shape_Area attribute 98226.4",359954,5008694,189
+C_degenerate,DRV_GLIM_Geomorphology,225,fix,"area 0.044 m2, 3 vertices, Shape_Area attribute 101449.6",358881,5011064,197
+C_degenerate,DRV_GLIM_Geomorphology,236,fix,"area 0.095 m2, 4 vertices, Shape_Area attribute 40855.0",354459,5011697,208
+C_degenerate,DRV_GLIM_Geomorphology,237,fix,"area 0.309 m2, 4 vertices, Shape_Area attribute 40855.0",354568,5011620,209
+C_degenerate,DRV_GLIM_Geomorphology,265,fix,"area 0.192 m2, 5 vertices, Shape_Area attribute 18935.5",358158,5007857,237
+C_degenerate,DRV_GLIM_Geomorphology,268,fix,"area 9.708 m2, 7 vertices, Shape_Area attribute 18935.5",358155,5007660,240
+C_degenerate,DRV_GLIM_Geomorphology,276,fix,"area 5.969 m2, 16 vertices, Shape_Area attribute 60595.1",360165,5008684,248
+C_degenerate,DRV_GLIM_Geomorphology,277,fix,"area 3.422 m2, 13 vertices, Shape_Area attribute 60595.1",360162,5008704,249
+C_degenerate,DRV_GLIM_Geomorphology,281,fix,"area 0.840 m2, 3 vertices, Shape_Area attribute 178967.3",355742,5012523,253
+C_degenerate,DRV_GLIM_Geomorphology,282,fix,"area 5.387 m2, 7 vertices, Shape_Area attribute 178967.3",356348,5011744,254
+C_degenerate,DRV_GLIM_Geomorphology,283,fix,"area 8.036 m2, 7 vertices, Shape_Area attribute 178967.3",356340,5011749,255
+C_degenerate,DRV_GLIM_Geomorphology,290,fix,"area 0.592 m2, 4 vertices, Shape_Area attribute 10826.4",358453,5011473,262
+C_degenerate,DRV_GLIM_Geomorphology,291,fix,"area 0.798 m2, 4 vertices, Shape_Area attribute 10826.4",358455,5011474,263
+C2_sliver,DRV_GLIM_O_I,690/xdf,check,"shape index 6.9, area 31579.4 m2",357292,5011641,1244
+C2_sliver,DRV_GLIM_rockfalls,0/xrf,check,"shape index 7.9, area 31681.6 m2",361667,5006701,2
+C2_sliver,DRV_GLIM_rockfalls,0/xrf,check,"shape index 10.4, area 116915.1 m2",359356,5010461,20
+C2_sliver,DRV_GLIM_rockfalls,0/xrf,check,"shape index 6.6, area 11969.0 m2",360578,5008116,23
+C2_sliver,DRV_GLIM_rockfalls,0/xrf,check,"shape index 6.4, area 36866.3 m2",359842,5009678,124
+C2_sliver,DRV_GLIM_Geomorphology,225,check,"shape index 7.0, area 0.0 m2",358881,5011064,197
+D_vertex_defect,DRV_GLIM_O_I,30/xs,check,"0 repeated vertices, 0 short segments, 1 spikes",353792,5013378,54
+D_vertex_defect,DRV_GLIM_O_I,624/xs,check,"0 repeated vertices, 0 short segments, 1 spikes",361123,5006351,378
+D_vertex_defect,DRV_GLIM_O_I,607/xs,check,"0 repeated vertices, 0 short segments, 1 spikes",359921,5006693,424
+D_vertex_defect,DRV_GLIM_O_II,94/xs,check,"0 repeated vertices, 0 short segments, 1 spikes",359351,5009063,302
+D_vertex_defect,DRV_GLIM_VO_I,11/s,check,"0 repeated vertices, 6 short segments, 1 spikes",359600,5007879,5
+D_vertex_defect,DRV_GLIM_VO_I,11/xs,check,"0 repeated vertices, 1 short segments, 1 spikes",360187,5008081,7
+D_vertex_defect,DRV_GLIM_rockfalls,0/xrf,check,"0 repeated vertices, 7 short segments, 1 spikes",359356,5010461,20
+D_vertex_defect,DRV_GLIM_rockfalls,0/xrf,check,"0 repeated vertices, 4 short segments, 1 spikes",359842,5009678,124
+D_vertex_defect,DRV_GLIM_Geomorphology,78,check,"0 repeated vertices, 0 short segments, 1 spikes",359452,5006802,76
+D_vertex_defect,DRV_GLIM_Geomorphology,225,check,"0 repeated vertices, 0 short segments, 1 spikes",358881,5011064,197
+E_intra_layer_overlap,DRV_GLIM_O_I,708/df,check,overlaps 124/xdf by 25.2 m2,356224,5011588,215
+E_intra_layer_overlap,DRV_GLIM_O_I,487/s,check,overlaps 488/s by 1.1 m2,359059,5007746,506
+E_intra_layer_overlap,DRV_GLIM_O_I,380/s,check,overlaps 379/s by 4.4 m2,359379,5009220,853
+E_intra_layer_overlap,DRV_GLIM_O_I,694/ds,check,overlaps 695/ds by 1.7 m2,358813,5007281,1204
+E_intra_layer_overlap,DRV_GLIM_O_II,79/s,check,overlaps 75/s by 2.1 m2,358609,5010376,337
+F_source_deposit_gap,DRV_GLIM_O_I,673/s,check,"does not touch 673/xdf, the other polygon of the same landslide: gap 4851.01 m",353650,5013405,30
+F_source_deposit_gap,DRV_GLIM_O_I,92/xdf,check,"does not touch 92/df, the other polygon of the same landslide: gap 21.39 m",354279,5011747,150
+F_source_deposit_gap,DRV_GLIM_O_I,97/xdf,check,"does not touch 97/df, the other polygon of the same landslide: gap 24.04 m",354161,5012202,159
+F_source_deposit_gap,DRV_GLIM_O_I,329/xdf,check,"does not touch 329/df, the other polygon of the same landslide: gap 33.17 m",358147,5007677,346
+F_source_deposit_overlap,DRV_GLIM_O_I,631/xs,fix,"overlaps 631/s, the other polygon of the same landslide, by 1.9 m2",360027,5006157,354
+F_snap_artefact,DRV_GLIM_O_I,648/df,cosmetic,"separated from 648/xdf by 4.52e-10 m, a snapping artefact rather than a mapped gap",360859,5005666,412
+F_snap_artefact,DRV_GLIM_O_I,552/xs,cosmetic,"separated from 552/s by 5.36e-10 m, a snapping artefact rather than a mapped gap",359196,5007444,533
+F_source_deposit_overlap,DRV_GLIM_O_I,484/xs,fix,"overlaps 484/s, the other polygon of the same landslide, by 6.9 m2",358717,5008354,620
+F_source_deposit_overlap,DRV_GLIM_O_I,232/xdf,fix,"overlaps 232/df, the other polygon of the same landslide, by 3.0 m2",359116,5010816,1021
+F_source_deposit_overlap,DRV_GLIM_O_I,548/xs,fix,"overlaps 548/s, the other polygon of the same landslide, by 4.6 m2",359863,5008521,1179
+F_source_deposit_overlap,DRV_GLIM_O_I,752/xdf,fix,"overlaps 752/df, the other polygon of the same landslide, by 6.6 m2",352373,5015090,1261
+F_snap_artefact,DRV_GLIM_O_I,762/xds,cosmetic,"separated from 762/ds by 4.64e-10 m, a snapping artefact rather than a mapped gap",352324,5014977,1270
+F_snap_artefact,DRV_GLIM_O_II,74/s,cosmetic,"separated from 74/xs by 2.80e-10 m, a snapping artefact rather than a mapped gap",358491,5010229,333
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"9 interior ring(s), total 3121.3 m2",361667,5006701,2
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"1 interior ring(s), total 222.8 m2",358980,5011008,17
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"12 interior ring(s), total 15124.0 m2",359356,5010461,20
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"1 interior ring(s), total 135.7 m2",360402,5008151,103
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"3 interior ring(s), total 1924.9 m2",360218,5008978,115
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"1 interior ring(s), total 230.1 m2",360016,5009279,119
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"2 interior ring(s), total 778.8 m2",360139,5009185,123
+H_holes,DRV_GLIM_rockfalls,0/xrf,check,"8 interior ring(s), total 4543.8 m2",359842,5009678,124
+H_holes,DRV_GLIM_Geomorphology,280,check,"2 interior ring(s), total 606.8 m2",360247,5008412,252
+I_geomorph_overlap,DRV_GLIM_Geomorphology,0,check,overlaps gm_id 39 (gl) by 282.9 m2,353681,5012915,0
+I_geomorph_overlap,DRV_GLIM_Geomorphology,1,check,overlaps gm_id 16 (gl) by 92.9 m2,353936,5012951,1
+I_geomorph_overlap,DRV_GLIM_Geomorphology,4,check,overlaps gm_id 25 (gl) by 1.1 m2,355234,5011415,4
+I_geomorph_overlap,DRV_GLIM_Geomorphology,4,check,overlaps gm_id 55 (gl) by 603.9 m2,355234,5011415,4
+I_geomorph_overlap,DRV_GLIM_Geomorphology,4,check,overlaps gm_id 26 (gl) by 603.9 m2,355234,5011415,4
+I_geomorph_overlap,DRV_GLIM_Geomorphology,5,check,overlaps gm_id 27 (gl) by 113.0 m2,355084,5011535,5
+I_geomorph_overlap,DRV_GLIM_Geomorphology,8,check,overlaps gm_id 9 (af) by 2.1 m2,355746,5010854,8
+I_geomorph_overlap,DRV_GLIM_Geomorphology,15,check,overlaps gm_id 134 (gl) by 6.6 m2,353925,5012737,13
+I_geomorph_overlap,DRV_GLIM_Geomorphology,15,check,overlaps gm_id 197 (ot) by 303.6 m2,353925,5012737,13
+I_geomorph_overlap,DRV_GLIM_Geomorphology,26,check,overlaps gm_id 55 (gl) by 603.9 m2,355258,5011445,24
+I_geomorph_overlap,DRV_GLIM_Geomorphology,39,check,overlaps gm_id 197 (ot) by 2.3 m2,353649,5012883,37
+I_geomorph_overlap,DRV_GLIM_Geomorphology,43,check,overlaps gm_id 67 (af) by 125.3 m2,357085,5009569,41
+I_geomorph_overlap,DRV_GLIM_Geomorphology,48,check,overlaps gm_id 194 (ot) by 971.7 m2,356582,5009981,46
+I_geomorph_overlap,DRV_GLIM_Geomorphology,68,check,overlaps gm_id 113 (gl) by 169.7 m2,357490,5009346,66
+I_geomorph_overlap,DRV_GLIM_Geomorphology,68,check,overlaps gm_id 106 (gl) by 86.9 m2,357490,5009346,66
+I_geomorph_overlap,DRV_GLIM_Geomorphology,69,check,overlaps gm_id 107 (gl) by 2091.0 m2,357720,5009275,67
+I_geomorph_overlap,DRV_GLIM_Geomorphology,70,check,overlaps gm_id 100 (gl) by 237.9 m2,357738,5009025,68
+I_geomorph_overlap,DRV_GLIM_Geomorphology,71,check,overlaps gm_id 102 (gl) by 1050.4 m2,358055,5008762,69
+I_geomorph_overlap,DRV_GLIM_Geomorphology,74,check,overlaps gm_id 95 (gl) by 14.1 m2,358847,5007603,72
+I_geomorph_overlap,DRV_GLIM_Geomorphology,75,check,overlaps gm_id 91 (gl) by 155.8 m2,358917,5007509,73
+I_geomorph_overlap,DRV_GLIM_Geomorphology,77,check,overlaps gm_id 112 (gl) by 1593.0 m2,357176,5009986,75
+I_geomorph_overlap,DRV_GLIM_Geomorphology,80,check,overlaps gm_id 104 (gl) by 3966.0 m2,359134,5008858,78
+I_geomorph_overlap,DRV_GLIM_Geomorphology,81,check,overlaps gm_id 104 (gl) by 11066.8 m2,358658,5008440,79
+I_geomorph_overlap,DRV_GLIM_Geomorphology,82,check,overlaps gm_id 108 (gl) by 289.5 m2,357411,5009691,80
+I_geomorph_overlap,DRV_GLIM_Geomorphology,100,check,overlaps gm_id 165 (gl) by 186.1 m2,357879,5009036,98

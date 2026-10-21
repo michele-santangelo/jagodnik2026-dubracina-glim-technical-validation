@@ -1,0 +1,59 @@
+# Inventory of Tosevski, A. (2013) "Inventar klizista u slivu rijeke Dubracine"
+# [Slide inventory in Dubracina river basin], Rudarsko-geolosko-naftni zbornik 27, 1-16.
+#
+# Transcribed from the published PDF (file "2013_Tosevski_Dubracina inventory.pdf"):
+#   x, y                 -> Table 1, p. 6   (coordinates of a characteristic point of
+#                           each slide polygon, CRS "MGI Balkans 5" = EPSG:31275;
+#                           the column printed as "x" is the easting, "y" the northing)
+#   area_m2 .. azimuth   -> Table 2, p. 8
+#   detection            -> Table 2, "detekcija": DEM = visual analysis of the 1 m DEM,
+#                           field = field geomorphological mapping
+#
+# Published totals used as transcription checks (see 05_compare_tosevski.py):
+#   n = 39 slides; sum(area_m2) = 81873 m2; 16 detected on the DEM, 23 in the field;
+#   area range 150-12956 m2; total length range 20-226 m; slope range 10.1-28.6 deg.
+#
+# NOTE on slide 3: the published volume (1414 m3) is inconsistent with the
+# area-volume relation the author states he applied (volume = 0.0844 * area^1.4324,
+# after Guzzetti et al. 2008), which gives about 14150 m3 for an area of 4437 m2.
+# The value is transcribed as published; the checking script reports it.
+slide_id,x,y,area_m2,volume_m3,total_length_m,width_m,slope_deg,detection,azimuth_deg
+1,5470533,5012509,2384,5808,81,38,10.6,DEM,219
+2,5476549,5007186,695,994,51,17,19.5,DEM,240
+3,5476068,5006340,4437,1414,119,51,21.2,DEM,42
+4,5477802,5007238,12956,65621,226,82,19.4,DEM,242
+5,5477721,5007130,987,1642,47,27,24.9,DEM,327
+6,5477792,5007011,2150,5009,93,38,18.8,field,211
+7,5477798,5006938,1367,2618,73,30,20.9,DEM,227
+8,5477768,5006846,417,478,39,14,19.4,DEM,262
+9,5477664,5006938,1293,2418,60,27,13.6,field,180
+10,5477619,5006979,548,707,38,21,18.4,field,312
+11,5477577,5006957,923,1492,53,24,20.8,field,284
+12,5477541,5006923,2575,6485,90,42,20.9,field,247
+13,5477518,5006889,560,729,43,20,24.8,DEM,270
+14,5477446,5006728,2800,7312,106,41,22.0,field,293
+15,5477473,5006669,1248,2298,77,23,18.2,field,266
+16,5477394,5006643,2668,6824,117,34,18.0,field,305
+17,5477241,5006719,666,935,51,18,27.1,field,297
+18,5477216,5006703,613,830,42,20,25.3,field,297
+19,5477190,5006687,208,176,25,12,28.6,field,297
+20,5477157,5006739,2890,7651,84,51,16.5,field,175
+21,5476947,5006660,4144,12821,126,46,12.4,field,146
+22,5476857,5006567,2577,6493,108,35,14.4,field,118
+23,5476842,5006499,4081,12543,109,54,10.1,field,56
+24,5477802,5006701,1493,2971,69,33,21.3,DEM,228
+25,5477804,5006669,483,590,39,19,22.6,DEM,228
+26,5477788,5006599,419,481,44,14,22.5,field,191
+27,5477735,5006609,4143,12817,107,54,13.5,field,132
+28,5477712,5006527,3260,9092,133,36,15.3,field,150
+29,5477679,5006478,3750,11112,163,29,14.9,field,121
+30,5478054,5005627,1000,1673,45,29,20.9,field,349
+31,5477977,5005621,2428,5962,63,51,18.4,DEM,331
+32,5477918,5005571,2296,5503,91,39,17.8,DEM,293
+33,5477796,5005545,2397,5853,71,50,14.6,field,309
+34,5477617,5005479,1681,3521,87,34,14.7,field,332
+35,5477583,5005492,1318,2485,57,31,18.4,field,332
+36,5477558,5005486,150,111,20,10,20.2,DEM,342
+37,5477550,5005468,369,401,41,12,20.2,DEM,324
+38,5477488,5005469,1540,3106,69,28,17.7,DEM,336
+39,5477417,5005462,1959,4384,77,32,16.6,DEM,327

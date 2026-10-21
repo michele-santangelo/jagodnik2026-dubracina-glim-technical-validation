@@ -1,0 +1,16 @@
+check,criterion,records_flagged,corrected,remaining,remainder_kind
+Coordinate reference system,every layer declares EPSG:3765,0,0,0,as mapped
+Geometry validity,"no self-intersecting, empty or null geometry",4,4,0,as mapped
+Duplicate geometries,no polygon repeated within or across layers,6,6,0,as mapped
+Degenerate polygons,no polygon below 10 m2 or with fewer than four vertices,15,15,0,as mapped
+Vertex defects,no repeated vertices; spikes inspected,10,9,1,as mapped
+Overlap within a generation,distinct landslides of one generation are not superimposed,5,5,0,as mapped
+Source and deposit topology,the polygons of one landslide share a boundary without overlapping,13,11,2,as mapped
+Identifier structure,each identifier belongs to the polygons of one landslide only,2,2,0,convention
+Landslide split across two identifiers,"a source area is not a landslide on its own, debris flows excepted",2,2,0,as mapped
+Attribute consistency within a landslide,the polygons of one landslide agree on depth and uncertainty,1,1,0,as mapped
+Classification criteria,the depth class follows the criteria stated in the Methods,4,4,0,convention
+Missing values and code dictionaries,no null attribute; every code is documented,17,17,0,documented in the tables
+Features outside the study area,no polygon extends beyond the mapped domain,0,0,0,as mapped
+Area attribute,Shape_Area agrees with the geometry on a single basis,122,122,0,as mapped
+Geomorphological unit overlap,overlaps between surface-deposit units inspected,25,25,0,as mapped

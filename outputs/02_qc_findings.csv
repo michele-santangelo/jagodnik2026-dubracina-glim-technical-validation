@@ -1,0 +1,15 @@
+check,layer,feature,description
+B_multipart,DRV_GLIM_O_I,103,"2 parts, class xrav"
+B_multipart,DRV_GLIM_O_I,742,"2 parts, class xdf"
+B_multipart,DRV_GLIM_O_I,774,"3 parts, class xdf"
+B_multipart,DRV_GLIM_O_II,56,"2 parts, class xdf"
+B_multipart,DRV_GLIM_VO_I,3,"2 parts, class xs"
+B_multipart,DRV_GLIM_VO_II,3,"2 parts, class xrav"
+B_multipart,DRV_GLIM_rockfalls,21,"9 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,24,"2 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,113,"2 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,114,"2 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,125,"2 parts, class xrf"
+E_not_globally_unique,all landslide layers,-,231 lds_id values are reused in more than one layer
+E_rockfall_missing_fields,DRV_GLIM_rockfalls,-,no depth attribute
+J_slivers,DRV_GLIM_Geomorphology,-,"33 polygons < 200 m2, smallest 10.648 m2"

@@ -1,0 +1,22 @@
+subset,class,value,percent_of_domain
+all generations + rockfalls,both,1.7049,10.3
+all generations + rockfalls,only_new,8.2014,49.7
+all generations + rockfalls,only_previous,1.0011,6.1
+all generations + rockfalls,neither,5.5863,33.9
+all generations + rockfalls,index of agreement,0.156,
+all generations + rockfalls,their area recovered %,63.0,
+all generations + rockfalls,our area also theirs %,17.2,
+old class O1-O4 + rockfalls,both,1.3408,8.1
+old class O1-O4 + rockfalls,only_new,3.5337,21.4
+old class O1-O4 + rockfalls,only_previous,1.3652,8.3
+old class O1-O4 + rockfalls,neither,10.2540,62.2
+old class O1-O4 + rockfalls,index of agreement,0.215,
+old class O1-O4 + rockfalls,their area recovered %,49.5,
+old class O1-O4 + rockfalls,our area also theirs %,27.5,
+old class O1-O4 only,both,0.9326,5.7
+old class O1-O4 only,only_new,3.4746,21.1
+old class O1-O4 only,only_previous,1.7734,10.8
+old class O1-O4 only,neither,10.3131,62.5
+old class O1-O4 only,index of agreement,0.151,
+old class O1-O4 only,their area recovered %,34.5,
+old class O1-O4 only,our area also theirs %,21.2,

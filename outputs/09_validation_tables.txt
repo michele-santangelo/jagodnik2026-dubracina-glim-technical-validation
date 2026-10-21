@@ -1,0 +1,172 @@
+==============================================================================
+09 - Tables for the Technical Validation
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+A - Database and geometric integrity
+------------------------------------
+landslide polygons inspected           1919
+landslides (distinct identifiers)      1097
+rockfall polygons inspected            486
+geomorphological polygons inspected    245
+
+check                                     criterion                                                           records flagged  corrected  remaining  what the remainder is
+----------------------------------------  ------------------------------------------------------------------  ---------------  ---------  ---------  ---------------------
+Coordinate reference system               every layer declares EPSG:3765                                      0                0          -          -                    
+Geometry validity                         no self-intersecting, empty or null geometry                        4                4          -          -                    
+Duplicate geometries                      no polygon repeated within or across layers                         6                6          -          -                    
+Degenerate polygons                       no polygon below 10 m2 or with fewer than four vertices             15               15         -          -                    
+Vertex defects                            no repeated vertices; spikes inspected                              10               9          1          as mapped            
+Overlap within a generation               distinct landslides of one generation are not superimposed          5                5          -          -                    
+Source and deposit topology               the polygons of one landslide share a boundary without overlapping  13               11         2          as mapped            
+Identifier structure                      each identifier belongs to the polygons of one landslide only       2                2          -          -                    
+Landslide split across two identifiers    a source area is not a landslide on its own, debris flows excepted  2                2          -          -                    
+Attribute consistency within a landslide  the polygons of one landslide agree on depth and uncertainty        1                1          -          -                    
+Classification criteria                   the depth class follows the criteria stated in the Methods          4                4          -          -                    
+Missing values and code dictionaries      no null attribute; every code is documented                         17               17         -          -                    
+Features outside the study area           no polygon extends beyond the mapped domain                         0                0          -          -                    
+Area attribute                            Shape_Area agrees with the geometry on a single basis               122              122        -          -                    
+Geomorphological unit overlap             overlaps between surface-deposit units inspected                    25               25         -          -                    
+TOTAL                                                                                                         226              223        3                               
+
+The remainder is not a residue of unresolved errors. It is of three kinds.
+'convention': the record follows a mapping rule that the Methods state
+explicitly, namely that debris flows are classified shallow
+whatever their polygon structure and that a landslide may need more than
+two polygons. 'as mapped': the record was examined in the GIS and found
+correct, for instance a long narrow debris-flow channel that a shape index
+flags as a sliver, or a gap that is a transit zone between a detachment
+area and its deposit. 'documented in the tables': a code that the
+data contains and the published dictionary did not list.
+
+remainder  records
+---------  -------
+as mapped  3      
+
+The checks that a defect count would misrepresent, reported separately:
+check                      before  after
+-------------------------  ------  -----
+B_multipart                13      11   
+C2_sliver                  6       4    
+E_not_globally_unique      1       1    
+E_rockfall_missing_fields  1       1    
+H_holes                    9       10   
+J_slivers                  1       1    
+
+B - Comparison with Tosevski (2013)
+-----------------------------------
+quantity                                                  value          
+--------------------------------------------------------  ---------------
+landslides in that inventory                              39             
+  detected by field geomorphological mapping              23             
+  detected on the 1 m DTM and then verified in the field  16             
+falling inside a landslide polygon of the new G-LIM       38 / 39 (97 %) 
+within 5 m of one                                         39 / 39 (100 %)
+within 25 m of one                                        39 / 39 (100 %)
+falling inside the Jagodnik et al. (2020) inventory       36 / 39        
+
+The coordinates were published in MGI 1901 / Balkans zone 5 and
+reprojected to EPSG:3765; the transcription reproduces every aggregate
+value in that paper, including the total landslide area of 81,873 m2.
+
+C - Comparison with Jagodnik et al. (2020)
+------------------------------------------
+quantity                                value 
+--------------------------------------  ------
+pilot area of that inventory (km2)      16.75 
+  inside the present study area (km2)   16.49 
+  as a share of the present study area  42.9 %
+polygons in that inventory              528   
+their total area (km2)                  2.7060
+
+Detection agreement:
+quantity                                         value             
+-----------------------------------------------  ------------------
+polygons at least half covered by the new G-LIM  505 / 528 (95.6 %)
+polygons with any overlap                        525 / 528 (99.4 %)
+polygons with no overlap at all                  3                 
+mean fraction of a polygon covered               94.3 %            
+
+Areal agreement over the pilot area clipped to the study boundary:
+class                                    km2     % of the domain
+---------------------------------------  ------  ---------------
+mapped as landslide in both inventories  1.7049  10.3           
+only in the new G-LIM                    8.2014  49.7           
+only in the previous inventory           1.0011  6.1            
+in neither                               5.5863  33.9           
+
+previous inventory area recovered      63.0 %
+index of agreement (intersection / union) 0.156
+error index E = 1 - intersection / union 0.844
+
+E is a measure of difference, not of error, when the two inventories have
+different scope: the previous one mapped active, mostly gully-related
+instabilities over 16.75 km2, the present one also maps old and very old
+deep-seated landslides over the whole catchment. The informative figure is
+the share of the previous inventory that the new one recovers.
+
+Boundary and class agreement, best match by intersection over union:
+previous layer     landform                            n    median IoU  commonest matched type  commonest matched generation
+-----------------  ----------------------------------  ---  ----------  ----------------------  ----------------------------
+Debris slide_Flow  debris slide-flow                   131  0.34        s=85, sef=14, f=10      O_I=107, O_II=16            
+Debris slide       debris slide                        321  0.35        s=229, xs=31, rav=24    O_I=223, O_II=50            
+Fall_Chutes        rock-fall related chutes            41   0.07        xrf=23, wxrf=11, xdf=5  rockfalls=34, O_I=6         
+RFall_Cliff        rock-fall source area along cliffs  2    0.46        xrav=1, xrf=1           VO_R=1, rockfalls=1         
+RFall_Slope        rock-fall source area along slopes  5    0.19        xrf=1, xds=1, wxrf=1    O_I=3, rockfalls=2          
+RIrregSlide        rock irregular slide                20   0.19        xrf=12, wxrf=5, xdf=1   rockfalls=17, O_I=2         
+RRotatSlide        rock rotational slide               2    0.71        s=2                     O_I=2                       
+RSDeformation      rock slope deformation              1    0.00        xrav=1                  VO_R=1                      
+RotatSlide         rotational slide                    5    0.62        s=4, xf=1               O_I=4, O_II=1               
+
+D - The published uncertainty attribute
+---------------------------------------
+uncert  detection  delineation  classification  landslides  %   
+------  ---------  -----------  --------------  ----------  ----
+000     -          -            -               1039        94.7
+001     -          -            uncertain       54          4.9 
+010     -          uncertain    -               1           0.1 
+100     uncertain  -            -               1           0.1 
+110     uncertain  uncertain    -               1           0.1 
+111     uncertain  uncertain    uncertain       1           0.1 
+
+uncertainty flagged for  landslides  % of the inventory
+-----------------------  ----------  ------------------
+detection                3           0.3               
+delineation              3           0.3               
+classification           55          5.0               
+
+relative age  landslides  with any flag  %    
+------------  ----------  -------------  -----
+O             1074        55             5.1  
+VO            20          0              0.0  
+VOR           3           3              100.0
+
+Landslides flagged for detection or delineation, enumerated:
+
+layer  lds_id  uncert  relative age  class
+-----  ------  ------  ------------  -----
+O_I    649     111     O             xrsl 
+VO_R   1       110     VOR           rav  
+VO_R   2       010     VOR           rav  
+VO_R   3       100     VOR           rav  
+
+landslides flagged for detection or delineation 4
+  of which very old relict             3
+  of which flagged for both detection and delineation 2
+
+All three very-old-relict landslides carry such a flag, which is where
+the criterion of Table 4 expects them: morphology partly obliterated by
+later processes. They are not the only ones, however:
+elsewhere the doubt concerns the material involved, which
+the attribute records as classification uncertainty.

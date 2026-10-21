@@ -1,0 +1,145 @@
+==============================================================================
+05 - Comparison with Tosevski (2013)
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+Transcription checks against the published values
+-------------------------------------------------
+quantity                   transcribed  published  status
+-------------------------  -----------  ---------  ------
+number of slides           39           39         ok    
+total landslide area (m2)  81873.0      81873      ok    
+detected on the DEM        16           16         ok    
+detected in the field      23           23         ok    
+minimum area (m2)          150.0        150        ok    
+maximum area (m2)          12956.0      12956      ok    
+minimum total length (m)   20.0         20         ok    
+maximum total length (m)   226.0        226        ok    
+minimum slope (deg)        10.1         10.1       ok    
+maximum slope (deg)        28.6         28.6       ok    
+
+All aggregate values reproduce, so the transcribed tables can be used.
+
+Internal consistency of the published area-volume pairs
+-------------------------------------------------------
+slide_id  area m2  published volume m3  volume from the stated relation m3
+--------  -------  -------------------  ----------------------------------
+3         4437.0   1414.0               14139                             
+  [!] the published volume of the slide(s) above does not follow the area-volume relation the author states he applied; most likely a typesetting error in the 2013 paper. Not used further, but worth a footnote if those volumes are quoted.
+
+Reprojection to HTRS96 / Croatia TM
+-----------------------------------
+source CRS                             EPSG:31275 (MGI 1901 / Balkans zone 5)
+target CRS                             EPSG:3765 (HTRS96 / Croatia TM)
+points inside the study-area boundary  39 / 39
+
+All 39 points land inside the Dubracina boundary, which confirms the
+interpretation of the published coordinate system and of the column order
+(the column printed as 'x' is the easting).
+
+Caveat: PROJ's bundled datum-shift parameters are used, not the official
+Croatian transformation grid, so a systematic offset of a few metres cannot
+be excluded. Distances to the nearest polygon are reported below so that the
+conclusion can be judged against that uncertainty.
+
+Do the 39 slides fall inside the new G-LIM?
+-------------------------------------------
+  slide  1  A=  2384 m2  DEM    INSIDE  O_I id766 s deep-seated
+  slide  2  A=   695 m2  DEM    INSIDE  O_II id228 s deep-seated; O_I id262 s deep-seated; VO_R id1 rav deep-seated
+  slide  3  A=  4437 m2  DEM    INSIDE  VO_R id1 rav deep-seated
+  slide  4  A= 12956 m2  DEM    INSIDE  O_II id87 s deep-seated; VO_R id1 rav deep-seated
+  slide  5  A=   987 m2  DEM    INSIDE  O_I id391 xs deep-seated; VO_R id1 rav deep-seated
+  slide  6  A=  2150 m2  field  INSIDE  O_I id436 s deep-seated; VO_R id1 rav deep-seated
+  slide  7  A=  1367 m2  DEM    INSIDE  O_I id422 xsef deep-seated; VO_R id1 rav deep-seated
+  slide  8  A=   417 m2  DEM    INSIDE  O_I id427 s deep-seated; VO_R id1 rav deep-seated
+  slide  9  A=  1293 m2  field  INSIDE  O_I id432 xs deep-seated; VO_R id1 rav deep-seated
+  slide 10  A=   548 m2  field  INSIDE  O_I id396 ws shallow; VO_R id1 rav deep-seated
+  slide 11  A=   923 m2  field  INSIDE  O_I id397 sef deep-seated; VO_R id1 rav deep-seated
+  slide 12  A=  2575 m2  field  INSIDE  O_II id206 xs deep-seated; O_I id398 xs deep-seated; VO_R id1 rav deep-seated
+  slide 13  A=   560 m2  DEM    INSIDE  O_II id207 s shallow; O_I id398 xs deep-seated; VO_R id1 rav deep-seated
+  slide 14  A=  2800 m2  field  INSIDE  VO_R id1 rav deep-seated
+  slide 15  A=  1248 m2  field  INSIDE  O_I id799 sef shallow; VO_R id1 rav deep-seated
+  slide 16  A=  2668 m2  field  INSIDE  O_I id472 s deep-seated; VO_R id1 rav deep-seated
+  slide 17  A=   666 m2  field  INSIDE  O_I id471 s deep-seated; VO_R id1 rav deep-seated
+  slide 18  A=   613 m2  field  INSIDE  O_I id473 s deep-seated; VO_R id1 rav deep-seated
+  slide 19  A=   208 m2  field  INSIDE  O_I id479 s shallow; VO_R id1 rav deep-seated
+  slide 20  A=  2890 m2  field  INSIDE  O_I id356 s deep-seated; VO_R id1 rav deep-seated
+  slide 21  A=  4144 m2  field  INSIDE  O_I id347 s deep-seated; VO_R id1 rav deep-seated
+  slide 22  A=  2577 m2  field  INSIDE  O_II id223 s deep-seated; O_I id345 s deep-seated; VO_R id1 rav deep-seated
+  slide 23  A=  4081 m2  field  INSIDE  O_I id349 s deep-seated; VO_R id1 rav deep-seated
+  slide 24  A=  1493 m2  DEM    INSIDE  O_I id445 s deep-seated; VO_R id1 rav deep-seated
+  slide 25  A=   483 m2  DEM    INSIDE  O_I id449 s deep-seated; VO_R id1 rav deep-seated
+  slide 26  A=   419 m2  field  INSIDE  VO_R id1 rav deep-seated
+  slide 27  A=  4143 m2  field  INSIDE  O_II id112 s shallow; O_I id527 s deep-seated; VO_R id1 rav deep-seated
+  slide 28  A=  3260 m2  field  INSIDE  O_II id120 s deep-seated; O_I id527 s deep-seated; VO_R id1 rav deep-seated
+  slide 29  A=  3750 m2  field  INSIDE  O_I id526 sef deep-seated; VO_R id1 rav deep-seated
+  slide 30  A=  1000 m2  field  INSIDE  O_I id575 s deep-seated
+  slide 31  A=  2428 m2  DEM    INSIDE  O_I id572 s deep-seated
+  slide 32  A=  2296 m2  DEM    INSIDE  O_I id568 s deep-seated
+  slide 33  A=  2397 m2  field  outside, 4.6 m from the nearest polygon
+  slide 34  A=  1681 m2  field  INSIDE  O_I id560 s deep-seated
+  slide 35  A=  1318 m2  field  INSIDE  O_I id559 s deep-seated
+  slide 36  A=   150 m2  DEM    INSIDE  O_I id558 s deep-seated
+  slide 37  A=   369 m2  DEM    INSIDE  O_I id555 s deep-seated
+  slide 38  A=  1540 m2  DEM    INSIDE  O_I id556 s deep-seated
+  slide 39  A=  1959 m2  DEM    INSIDE  O_II id138 s shallow; O_I id552 s deep-seated
+
+slides falling inside a G-LIM landslide polygon 38 / 39 (97 %)
+  within 5 m of a G-LIM polygon        39 / 39 (100 %)
+  within 10 m of a G-LIM polygon       39 / 39 (100 %)
+  within 25 m of a G-LIM polygon       39 / 39 (100 %)
+  within 50 m of a G-LIM polygon       39 / 39 (100 %)
+  within 100 m of a G-LIM polygon      39 / 39 (100 %)
+slides falling inside the 2020 J. Maps inventory 36 / 39
+
+Tosevski reports that 36 of his 39 slides lie in the Slani Potok, Malenica
+and Kucina sub-catchments, which is where the 2020 inventory concentrates;
+the count above is an independent confirmation of that statement.
+
+How the new G-LIM classifies the same features
+----------------------------------------------
+quantity                                             value                                 
+---------------------------------------------------  --------------------------------------
+relative-age layer of the most specific match        O_I=27, O_II=8, VO_R=3                
+landslide type of the most specific match            s=27, rav=3, xs=3, sef=3, xsef=1, ws=1
+depth class of the most specific match               deep-seated=32, shallow=6             
+mean number of overlapping G-LIM polygons per slide  1.8                                   
+
+Tosevski mapped only soil slides in the flysch weathering zone and states
+that depth of the failure surface was left for future work, so his slides
+carry no depth class. A difference in the depth attribute is therefore not
+a disagreement between the two inventories.
+
+Metadata comparison
+-------------------
+property                  Tosevski (2013)                                                new G-LIM                                                                
+------------------------  -------------------------------------------------------------  -------------------------------------------------------------------------
+inventory type            historical (author's own wording)                              geomorphological historical                                              
+mapped domain             18.55 km2 (central part of the basin)                          38.42 km2 (boundary polygon)                                             
+basin area quoted         43.55 km2                                                      43.6 km2                                                                 
+base data                 1 m LiDAR DTM (March 2012) + field mapping                     1 m LiDAR DTM (2020-2022), pseudo-stereoscopic hillshade                 
+derivatives used          hillshade 315/45, slope, 1 m contours                          hillshade 315/45 and 45/45, combined, slope, 1/2/5 m contours            
+stereoscopic imagery      aerial stereo-pairs tried, no landslide detected               synthetic stereo-mates from the DTM, anaglyph interpretation             
+movement types            soil slides only                                               slides, flows, slide-flows, rock avalanches, rock falls, widespread units
+number of landslides      39                                                             1097                                                                     
+landslide area            0.0819 km2 (0.44 % of its domain)                              14.3642 km2 union (37.4 % of the boundary)                               
+size range                150-12956 m2                                                   69-5625767 m2                                                            
+relative age              not assigned                                                   3 classes, 6 generations                                                 
+uncertainty               not assigned                                                   3-digit positional code                                                  
+attributes per landslide  area, volume, length, width, slope, azimuth, detection method  type, relative age, generation, depth class, uncertainty, area           
+
+The two inventories are complementary rather than competing: Tosevski
+mapped a single process type over 18.55 km2 with field verification, and
+almost every one of his slides is recovered by the new G-LIM, which maps
+many more process types and several generations over the whole catchment.

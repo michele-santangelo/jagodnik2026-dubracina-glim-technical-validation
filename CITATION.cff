@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below and the archived version of the code."
+title: "Dubračina Valley G-LIM: technical validation code"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/michele-santangelo/jagodnik2026-dubracina-glim"
+authors:
+  - family-names: Santangelo
+    given-names: Michele
+    affiliation: "CNR IRPI, Research Institute for Geo-Hydrological Protection, Perugia, Italy"
+keywords:
+  - landslide inventory
+  - LiDAR
+  - quality control
+  - Croatia
+preferred-citation:
+  type: article
+  title: "Geomorphological landslide inventory of the Dubračina Valley using pseudo-stereoscopic LiDAR hillshade maps"
+  authors:
+    - family-names: Jagodnik
+      given-names: Petra
+    - family-names: Fiorucci
+      given-names: Federica
+    - family-names: Bernat Gazibara
+      given-names: Sanja
+    - family-names: Santangelo
+      given-names: Michele
+  journal: "Scientific Data"
+  year: 2026
+references:
+  - type: dataset
+    title: "Dubračina Valley geomorphological landslide inventory (DRV_GLIM)"
+    doi: "10.5281/zenodo.19813035"
+    authors:
+      - family-names: Jagodnik
+        given-names: Petra
+      - family-names: Fiorucci
+        given-names: Federica
+      - family-names: Bernat Gazibara
+        given-names: Sanja
+      - family-names: Santangelo
+        given-names: Michele

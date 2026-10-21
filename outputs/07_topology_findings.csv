@@ -1,0 +1,18 @@
+check,layer,key,severity,description,centroid_e,centroid_n,fid_volatile
+C2_sliver,DRV_GLIM_rockfalls,3/xrf,check,"shape index 7.9, area 31682.1 m2",361667,5006701,2
+C2_sliver,DRV_GLIM_rockfalls,21/xrf,check,"shape index 10.4, area 116914.3 m2",359356,5010461,20
+C2_sliver,DRV_GLIM_rockfalls,24/xrf,check,"shape index 6.6, area 11969.0 m2",360578,5008116,23
+C2_sliver,DRV_GLIM_rockfalls,125/xrf,check,"shape index 6.4, area 36866.0 m2",359842,5009678,124
+D_vertex_defect,DRV_GLIM_Geomorphology,104,check,"0 repeated vertices, 5 short segments, 1 spikes",359131,5008832,96
+F_source_deposit_gap,DRV_GLIM_O_I,92/xdf,check,"does not touch 92/df, the other polygon of the same landslide: gap 21.39 m",354279,5011747,150
+F_source_deposit_gap,DRV_GLIM_O_I,329/xdf,check,"does not touch 329/df, the other polygon of the same landslide: gap 33.17 m",358147,5007677,346
+H_holes,DRV_GLIM_rockfalls,3/xrf,check,"9 interior ring(s), total 3121.3 m2",361667,5006701,2
+H_holes,DRV_GLIM_rockfalls,18/xrf,check,"1 interior ring(s), total 222.8 m2",358980,5011008,17
+H_holes,DRV_GLIM_rockfalls,21/xrf,check,"12 interior ring(s), total 15124.0 m2",359356,5010461,20
+H_holes,DRV_GLIM_rockfalls,104/xrf,check,"1 interior ring(s), total 135.7 m2",360402,5008151,103
+H_holes,DRV_GLIM_rockfalls,116/xrf,check,"3 interior ring(s), total 1924.9 m2",360218,5008978,115
+H_holes,DRV_GLIM_rockfalls,120/xrf,check,"1 interior ring(s), total 230.1 m2",360016,5009279,119
+H_holes,DRV_GLIM_rockfalls,124/xrf,check,"2 interior ring(s), total 778.8 m2",360139,5009185,123
+H_holes,DRV_GLIM_rockfalls,125/xrf,check,"8 interior ring(s), total 4543.8 m2",359842,5009678,124
+H_holes,DRV_GLIM_Geomorphology,104,check,"1 interior ring(s), total 3966.0 m2",359131,5008832,96
+H_holes,DRV_GLIM_Geomorphology,277,check,"2 interior ring(s), total 606.8 m2",360247,5008413,227

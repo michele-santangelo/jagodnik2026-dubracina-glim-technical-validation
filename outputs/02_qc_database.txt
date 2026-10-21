@@ -1,0 +1,295 @@
+==============================================================================
+02 - Database and geometry quality control
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+A - Coordinate reference system
+-------------------------------
+layer                         EPSG  status
+----------------------------  ----  ------
+DRV_GLIM_O_I                  3765  ok    
+DRV_GLIM_O_II                 3765  ok    
+DRV_GLIM_O_III                3765  ok    
+DRV_GLIM_O_IV                 3765  ok    
+DRV_GLIM_VO_I                 3765  ok    
+DRV_GLIM_VO_II                3765  ok    
+DRV_GLIM_VO_R                 3765  ok    
+DRV_GLIM_rockfalls            3765  ok    
+DRV_GLIM_Geomorphology        3765  ok    
+DRV_Boundary                  3765  ok    
+JOM_Debris flow_thalweg_htrs  3765  ok    
+JOM_Debris slide_Flow_htrs    3765  ok    
+JOM_Debris slide_htrs         3765  ok    
+JOM_Fall_Chutes_htrs          3765  ok    
+JOM_RFall_Cliff_htrs          3765  ok    
+JOM_RFall_Slope_htrs          3765  ok    
+JOM_RIrregSlide_htrs          3765  ok    
+JOM_RRotatSlide_htrs          3765  ok    
+JOM_RSDeformation_htrs        3765  ok    
+JOM_RotatSlide_htrs           3765  ok    
+
+The hillshade raster Dubracina_SHD.tif is checked separately: gdalinfo
+reports an unnamed CRS whose parameters match HTRS96/TM but which
+carries no EPSG authority code (see README).
+
+B - Geometry validity, empty and multipart geometries
+-----------------------------------------------------
+layer          features  invalid  empty  multipart  holes  min area m2  max area m2
+-------------  --------  -------  -----  ---------  -----  -----------  -----------
+O_I            1314      0        0      3          0      33.06        187349     
+O_II           422       0        0      1          0      46.71        62699      
+O_III          135       0        0      0          0      35.09        18927      
+O_IV           6         0        0      0          0      53.68        1678       
+VO_I           30        0        0      1          0      7702.05      711372     
+VO_II          6         0        0      1          0      8221.95      99365      
+VO_R           6         0        0      0          0      10016.47     5052497    
+rockfalls      486       0        0      5          37     56.74        116914     
+Geomorphology  245       0        0      0          3      10.65        985777     
+
+Invalid geometries in detail:
+
+Multipart landslide features (relevant to the two-polygon rule):
+    O_I        id=103 class=xrav parts=2 area=25600.5 m2
+    O_I        id=742 class=xdf parts=2 area=7434.4 m2
+    O_I        id=774 class=xdf parts=3 area=944.6 m2
+    O_II       id=56 class=xdf parts=2 area=2684.8 m2
+    VO_I       id=3 class=xs parts=2 area=12170.3 m2
+    VO_II      id=3 class=xrav parts=2 area=23572.6 m2
+    rockfalls  id=21 class=xrf parts=9 area=116914.3 m2
+    rockfalls  id=24 class=xrf parts=2 area=11969.0 m2
+    rockfalls  id=113 class=xrf parts=2 area=3072.8 m2
+    rockfalls  id=114 class=xrf parts=2 area=2836.1 m2
+    rockfalls  id=125 class=xrf parts=2 area=36866.0 m2
+
+C - Missing (NULL) attribute values
+-----------------------------------
+layer  field  NULL values
+-----  -----  -----------
+-      -      none found 
+
+D - Attribute values against the published dictionaries
+-------------------------------------------------------
+distinct lds_class values in the data  19
+
+
+The widespread rockfall codes need a decision. Table 2 defines wxrf as
+the widespread source area and wrf as the widespread deposit. The data
+now hold 279 wxrf and no wrf, so every widespread
+rockfall polygon is a source area and no widespread deposit is recorded
+in this layer. That is coherent if the deposits are the talus units of
+the geomorphological layer, which is what the Data Overview describes,
+but Table 2 must then say so and stop offering wrf as a value.
+
+uncert values not matching /^[01]{3}$/ 0
+
+E - Identifier structure
+------------------------
+layer  distinct lds_id  min  max  1 poly  2 poly  >2 poly
+-----  ---------------  ---  ---  ------  ------  -------
+O_I    755              1    806  197     557     1      
+O_II   238              1    242  54      184     0      
+O_III  77               1    77   19      58      0      
+O_IV   4                1    4    2       2       0      
+VO_I   17               1    17   4       13      0      
+VO_II  3                1    3    0       3       0      
+VO_R   3                1    3    0       3       0      
+
+distinct lds_id values across all layers 768
+lds_id values occurring in more than one layer 231
+  [!] lds_id is unique only WITHIN a layer, not across the dataset; Table 7 describes it as a 'unique identifier assigned to each landslide'. Either qualify the description or issue dataset-wide ids (e.g. O_I_0001).
+
+rockfall layer attributes              lds_id, lds_class, Shape_Area, uncert
+distinct identifier values in the rockfall layer 485
+polygons per identifier                {1: 484, 2: 1}
+  [!] the rockfall layer still has no depth attribute, so Table 7 has to state which fields apply to which layer
+
+F - Source / deposit pairing within one lds_id
+----------------------------------------------
+layer  pairing problems
+-----  ----------------
+O_I    0               
+O_II   0               
+O_III  0               
+O_IV   0               
+VO_I   0               
+VO_II  0               
+VO_R   0               
+
+G - Attribute consistency within one lds_id
+-------------------------------------------
+layer  mixed depth  mixed uncert
+-----  -----------  ------------
+O_I    0            0           
+O_II   0            0           
+O_III  0            0           
+O_IV   0            0           
+VO_I   0            0           
+VO_II  0            0           
+VO_R   0            0           
+
+H - The depth rule as the Methods now state it
+----------------------------------------------
+A landslide whose scarp or source area is delineated as a polygon
+distinct from the deposit is deep-seated; one represented by a single
+polygon is shallow; and a debris flow is shallow whatever its polygon
+structure, because its upslope polygon is a concave erosional and
+transport zone and not the scarp of a failure surface.
+
+The submitted text stated the first two clauses and omitted the third.
+Run against that text this check flagged 79 debris flows, which were
+not defects: the data was right and the description incomplete. The
+criterion is encoded here as the Methods now state it, so those records
+are no longer findings, and what the check reports is disagreement with
+the published criterion rather than with an earlier draft of it.
+
+layer  landslides  depth against the criteria  polygons disagree
+-----  ----------  --------------------------  -----------------
+O_I    755         0                           0                
+O_II   238         0                           0                
+O_III  77          0                           0                
+O_IV   4           0                           0                
+VO_I   17          0                           0                
+VO_II  3           0                           0                
+VO_R   3           0                           0                
+
+landslides not following the stated criteria 0
+
+I - Features outside the study-area boundary
+--------------------------------------------
+layer          features spilling out  area outside m2
+-------------  ---------------------  ---------------
+O_I            0                      0.0            
+O_II           0                      0.0            
+O_III          0                      0.0            
+O_IV           0                      0.0            
+VO_I           0                      0.0            
+VO_II          0                      0.0            
+VO_R           0                      0.0            
+rockfalls      0                      0.0            
+Geomorphology  0                      0.0            
+
+J - Shape_Area attribute versus computed area
+---------------------------------------------
+Shape_Area is compared against BOTH the planar grid area of the projected
+coordinates and the geodesic area on the GRS80 ellipsoid, because the two
+differ here and a GIS can be asked for either. HTRS96 / Croatia TM has its
+central meridian at 16.5 deg E with a scale factor of 0.9999, and the
+Dubracina valley lies about 145 km west of it, where the grid scale has
+grown back above unity: grid areas run about 0.03 % larger than ellipsoidal
+ones. A field recomputed with the geodesic option therefore disagrees with
+the grid area by that amount without being wrong.
+
+layer          features  field basis        decisive grid/geodesic  matches neither  sum of field km2
+-------------  --------  -----------------  ----------------------  ---------------  ----------------
+O_I            1314      geodesic           0/242                   0                7.45422         
+O_II           422       geodesic           0/78                    0                1.91245         
+O_III          135       geodesic           0/5                     0                0.22832         
+O_IV           6         indistinguishable  0/0                     0                0.00279         
+VO_I           30        geodesic           0/30                    0                4.16470         
+VO_II          6         geodesic           0/6                     0                0.25811         
+VO_R           6         geodesic           0/6                     0                6.67884         
+rockfalls      486       geodesic           0/17                    0                0.93932         
+Geomorphology  245       geodesic           0/80                    0                6.68971         
+
+'decisive' counts only polygons big enough that the 0.03 % difference
+between the two bases exceeds the precision the field is stored with;
+smaller polygons match both and say nothing about which was used.
+
+layers whose Shape_Area is geodesic    8
+layers whose Shape_Area is the grid area 0
+records matching neither basis         0
+
+Totals on each basis, all polygon layers together:
+basis                                     km2       difference from grid
+----------------------------------------  --------  --------------------
+planar grid area (projected coordinates)  28.33686  -                   
+geodesic area (GRS80 ellipsoid)           28.32846  297 ppm smaller     
+
+At 1:10,000 the difference is immaterial: 0.03 % of the mapped area is a
+few thousand square metres over 20 km2, well inside the delineation
+uncertainty. It matters only for internal consistency and for saying in
+the Data Records which definition the published areas use.
+
+Groups of features sharing one Shape_Area value. Where the geometries of a
+group sum to the field value, one unit was subdivided and the field was
+copied to each part; where they do not, the parts were also edited after
+the field was written. Either way the field cannot be reconstructed and
+must simply be recomputed from the geometry.
+
+Shape_Area value  features  sum of geometries m2  difference m2  parts sum to value?  gm_id
+----------------  --------  --------------------  -------------  -------------------  -----
+
+features inside a shared-value group   0
+groups whose parts sum to the field value 0
+  [!] no polygon in the layer has a geometry matching the largest shared values, so those numbers refer to units that no longer exist as single features. Recompute Shape_Area; do not try to reconcile it.
+
+
+geomorphological polygons smaller than 200 m2 33
+    smallest ten (area m2, gm_id, geom_class):
+          10.648  gm_id 271  t
+          15.607  gm_id 242  t
+          19.032  gm_id 260  t
+          20.366  gm_id 256  t
+          20.849  gm_id 243  t
+          20.915  gm_id 270  t
+          25.973  gm_id 239  t
+          29.372  gm_id 250  t
+          30.527  gm_id 261  t
+          32.041  gm_id 272  t
+
+K - Duplicate geometries
+------------------------
+layer          duplicated geometries
+-------------  ---------------------
+O_I            0                    
+O_II           0                    
+O_III          0                    
+O_IV           0                    
+VO_I           0                    
+VO_II          0                    
+VO_R           0                    
+rockfalls      0                    
+Geomorphology  0                    
+
+L - Landslides represented by a source polygon alone
+----------------------------------------------------
+Check F above pairs source and deposit only for landslides ALREADY
+represented by two polygons, so it cannot see a landslide whose scarp and
+deposit were given different identifiers: each half then looks like a
+well-formed single-polygon landslide. The converse test is made here. A
+source area is the upper part of a landslide and cannot be a landslide on
+its own, with one documented exception: debris flows are mapped by their
+detachment and transport zone alone wherever no distinct fan was
+deposited, which is why xdf and wxdf appear here legitimately. Any other
+class occurring as a lone source polygon is an anomaly, and for each one
+the neighbouring deposits of the matching landslide type carrying a
+different identifier are listed, because that is the signature of one
+landslide split across two identifiers.
+
+lone source class  landslides
+-----------------  ----------
+xdf                76        
+wxdf               1         
+
+lone source polygons of a class other than debris flow 0
+
+Summary
+-------
+check                      findings
+-------------------------  --------
+B_multipart                11      
+E_not_globally_unique      1       
+E_rockfall_missing_fields  1       
+J_slivers                  1       
+total findings                         14

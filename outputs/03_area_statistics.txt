@@ -1,0 +1,152 @@
+==============================================================================
+03 - Area statistics, overlap and density
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+How areas are measured
+----------------------
+property     value                                                                                                                                                                                           
+-----------  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+software     QGIS, field calculator, $area                                                                                                                                                                   
+measurement  ellipsoidal (project ellipsoidal measurement enabled)                                                                                                                                           
+ellipsoid    GRS 1980 (EPSG:7019)                                                                                                                                                                            
+layer crs    HTRS96 / Croatia TM (EPSG:3765)                                                                                                                                                                 
+units        square metres                                                                                                                                                                                   
+note         grid areas computed from the projected coordinates are about 300 ppm larger, because HTRS96/TM has k0 = 0.9999 on the central meridian at 16.5 deg E and the valley lies about 145 km west of it
+
+This paragraph belongs in the Data Records: without it a reader who
+recomputes the areas from the projected coordinates gets numbers about
+300 ppm larger and has no way to tell whether the published field is wrong.
+
+Every figure below is given on both bases. Note that all ratios - density,
+percentage of the study area - are identical on the two bases to the
+precision reported, because the scale factor cancels in a ratio of two
+areas measured the same way. Only absolute areas differ, in the fourth
+significant figure.
+
+Study area
+----------
+DRV_Boundary measured area (km2)       38.4159
+DRV_Boundary interior rings (holes)    0
+study area, ellipsoidal (km2)          38.4043
+study area, planar grid (km2)          38.4159
+area_km2 attribute in DRV_Boundary     38.404293
+area quoted in the submitted manuscript (km2) 43.6
+difference (km2)                       +5.1957
+
+The study area is the measured area of DRV_Boundary, 38.4 km2, which is the
+domain that was actually mapped. The 43.6 km2 of the submitted manuscript is
+the hydrological basin area (43.55 km2 in Tosevski 2013); the difference is
+the sub-horizontal karst surfaces, deliberately excluded. Every density and
+coverage figure below refers to the mapped domain.
+
+Cumulative polygon area versus union footprint
+----------------------------------------------
+quantity                                   km2      share                                        
+-----------------------------------------  -------  ---------------------------------------------
+cumulative polygon area, landslide layers  20.7055  53.9 % of the study area / 47.5 % of 43.6 km2
+union footprint, landslide layers          14.3642  37.4 % of the study area / 32.9 % of 43.6 km2
+cumulative polygon area, rockfall layer    0.9396   2.4 % of the study area / 2.2 % of 43.6 km2  
+union footprint, rockfall layer            0.9360   2.4 % of the study area / 2.1 % of 43.6 km2  
+union footprint, all layers together       15.0253  39.1 % of the study area / 34.5 % of 43.6 km2
+
+area double counted by the cumulative sum (km2) 6.3413
+  as a share of the cumulative area    30.6 %
+
+  [!] the manuscript reports 20.6 km2 = 47 % of the study area. That is the cumulative sum divided by 43.6 km2 (47.5 %). The land area actually affected by landsliding is the union, 14.36 km2, i.e. 32.9 % of 43.6 km2 or 37.4 % of the mapped boundary.
+
+union entirely inside the boundary     yes
+
+The same quantities on the ellipsoidal basis, which is the basis the
+dataset's Shape_Area field uses and the one the paper quotes:
+quantity                     grid km2  ellipsoidal km2  % of study area
+---------------------------  --------  ---------------  ---------------
+study area                   38.4159   38.4043          100.0          
+cumulative polygon area      20.7055   20.6994          53.9           
+union footprint, landslides  14.3642   14.3599          37.4           
+union footprint, rockfalls   0.9360    0.9357           2.4            
+union footprint, all layers  15.0253   15.0208          39.1           
+
+Area per relative-age class and generation
+------------------------------------------
+layer  age  gen  polygons  cumulative km2  union km2  % of boundary
+-----  ---  ---  --------  --------------  ---------  -------------
+O_I    O    1    1314      7.4565          7.4565     19.41        
+O_II   O    2    422       1.9130          1.9130     4.98         
+O_III  O    3    135       0.2284          0.2284     0.59         
+O_IV   O    4    6         0.0028          0.0028     0.01         
+VO_I   VO   1    30        4.1659          4.1659     10.84        
+VO_II  VO   2    6         0.2582          0.2582     0.67         
+VO_R   VOR  -    6         6.6808          6.6808     17.39        
+
+relative age  polygons  cumulative km2  union km2  % of boundary
+------------  --------  --------------  ---------  -------------
+O             1877      9.6007          8.1777     21.29        
+VO            36        4.4241          4.3956     11.44        
+VOR           6         6.6808          6.6808     17.39        
+
+Overlap between generation layers (km2)
+---------------------------------------
+layer  O_I     O_II    O_III   O_IV    VO_I    VO_II   VO_R  
+-----  ------  ------  ------  ------  ------  ------  ------
+O_I    7.4565  1.2407  0.1279  0.0028  1.7346  0.0359  2.0169
+O_II           1.9130  0.1226  0.0002  0.5611  0.0104  0.4748
+O_III                  0.2284  0.0028  0.0853  0.0000  0.0732
+O_IV                           0.0028  0.0002  0.0000  0.0000
+VO_I                                   4.1659  0.0286  1.2848
+VO_II                                          0.2582  0.0000
+VO_R                                                   6.6808
+
+The diagonal is the union area of the layer itself; off-diagonal cells are
+the areas where two generations overlap. This is the quantitative basis for
+stating that generation polygons are stacked rather than adjacent.
+
+Stacking depth (how many generation layers cover the same ground)
+-----------------------------------------------------------------
+Computed by successive intersection of the per-layer unions: the area
+covered by at least n layers.
+covered by >= n layers  km2      % of boundary
+----------------------  -------  -------------
+1                       14.3642  37.39        
+2                       5.0115   13.05        
+3                       1.1986   3.12         
+4                       0.1310   0.34         
+5                       0.0002   0.00         
+6                       0.0000   0.00         
+
+Size distribution
+-----------------
+statistic           per landslide (aggregated by lds_id)  per polygon
+------------------  ------------------------------------  -----------
+n                   1097                                  1919       
+min m2              68.6                                  33.1       
+5th percentile m2   214.4                                 137.7      
+median m2           2535.7                                1394.0     
+mean m2             18874.7                               10789.8    
+95th percentile m2  50951.2                               30609.5    
+max m2              5625766.7                             5052496.5  
+
+landslides below the 400 m2 threshold  138 (12.6 %)
+polygons below the 400 m2 threshold    422 (22.0 %)
+  [!] the smallest landslide in the database measures 68.6 m2 and 138 landslides fall below the 400 m2 completeness threshold. The threshold is the smallest *systematically* mapped unit, not the smallest record.
+
+Landslide density
+-----------------
+denominator                  km2      landslides per km2
+---------------------------  -------  ------------------
+measured boundary polygon    38.4159  28.6              
+43.6 km2 quoted in the text  43.6000  25.2              
+
+The manuscript reports 25 landslides per km2, which corresponds to the
+43.6 km2 denominator and to the earlier count of 1,094 landslides.

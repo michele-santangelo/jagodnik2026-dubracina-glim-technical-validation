@@ -1,0 +1,52 @@
+==============================================================================
+11 - One row per landslide, with identifier and total area
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+One CSV per landslide layer. Columns:
+
+  lds_id          identifier, unique within the layer
+  lds_class       type; the source-area polygon carries the x prefix
+  n_polygons      how many polygons represent this landslide
+  source_area_m2  area of the scarp/source polygons, blank where none
+  deposit_area_m2 area of the deposit polygons
+  total_area_m2   total area, the published lds_area field
+  sum_shape_area  the same total recomputed from Shape_Area here
+  geometry_m2     planar area of the polygons, for reference
+  depth, uncert   thematic attributes, constant within a landslide
+  cluster_id      overlap cluster, NA where not applicable
+
+lds_area is ellipsoidal, as Shape_Area is; geometry_m2 is planar on
+the layer CRS and runs about 300 ppm larger. See script 03.
+
+layer  polygons  landslides  total area km2  lds_area disagreeing with the sum
+-----  --------  ----------  --------------  ---------------------------------
+O_I    1314      755         7.4542          0                                
+O_II   422       238         1.9125          0                                
+O_III  135       77          0.2283          0                                
+O_IV   6         4           0.0028          0                                
+VO_I   30        17          4.1647          0                                
+VO_II  6         3           0.2581          0                                
+VO_R   6         3           6.6788          0                                
+
+landslides, all layers                 1097
+polygons, all layers                   1919
+records where the published lds_area does not match the sum 0
+
+The GIS instruction for the Usage Notes, in QGIS expression form,
+for users who prefer to recompute it rather than read the field:
+
+  sum("Shape_Area", group_by:="lds_id")
+
+and, to obtain one record per landslide, dissolve on lds_id or use
+Processing > Vector geometry > Dissolve with lds_id as the field.

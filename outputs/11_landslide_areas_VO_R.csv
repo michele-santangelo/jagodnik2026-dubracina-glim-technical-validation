@@ -1,0 +1,4 @@
+lds_id,lds_class,n_polygons,source_area_m2,deposit_area_m2,total_area_m2,sum_shape_area,geometry_m2,depth,uncert,cluster_id
+1,rav,2,573107.27,5051024.25,5624131.52,5624131.52,5625766.71,deep-seated,110,NA
+2,rav,2,149941.64,884674.3,1034615.94,1034615.94,1034921.22,deep-seated,010,NA
+3,rav,2,10013.64,10075.35,20088.98,20088.98,20094.66,deep-seated,100,NA

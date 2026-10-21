@@ -1,0 +1,10 @@
+# Python dependencies of the Dubracina G-LIM technical validation.
+# Tested with Python 3.10.12, GDAL 3.8.4, shapely 2.0.6, pyproj 3.7.1,
+# matplotlib 3.10.8.
+#
+# GDAL is intentionally not listed here: the Python bindings must match the
+# libgdal installed on the system. On Debian/Ubuntu install `python3-gdal`;
+# otherwise `pip install gdal==$(gdal-config --version)`, or use conda-forge.
+shapely>=2.0,<3
+pyproj>=3.4
+matplotlib>=3.5

@@ -1,0 +1,46 @@
+==============================================================================
+00 - Input data fingerprint
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+Input files
+-----------
+file                        bytes    sha256 (first 16)  features
+--------------------------  -------  -----------------  --------
+DRV_GLIM_O_I.shp            822436   b2473c977ba7ee60   1314    
+DRV_GLIM_O_I.dbf            139542   d924a88568e3017c           
+DRV_GLIM_O_II.shp           211176   d2364c92e3c06c0b   422     
+DRV_GLIM_O_II.dbf           44990    89f04cf12f48bca5           
+DRV_GLIM_O_III.shp          57660    da0cdc34db23644b   135     
+DRV_GLIM_O_III.dbf          14568    6c5d28c7c1ca9c76           
+DRV_GLIM_O_IV.shp           2516     ef43b4f3190c97fc   6       
+DRV_GLIM_O_IV.dbf           894      044e453bfe7a6d81           
+DRV_GLIM_VO_I.shp           94200    d9ed9ab9dc46949d   30      
+DRV_GLIM_VO_I.dbf           3438     8e146ec2d5c4fe5f           
+DRV_GLIM_VO_II.shp          9864     486d76c0d1ac711b   6       
+DRV_GLIM_VO_II.dbf          894      6458057c6259d170           
+DRV_GLIM_VO_R.shp           19780    b137b48346ff1d71   6       
+DRV_GLIM_VO_R.dbf           894      550961ed925bd9e2           
+DRV_GLIM_rockfalls.shp      688872   352fe3d51faa779c   486     
+DRV_GLIM_rockfalls.dbf      26406    d04d3e1678d8c838           
+DRV_GLIM_Geomorphology.shp  1272712  2ce47854d967a715   245     
+DRV_GLIM_Geomorphology.dbf  11400    81554ad58858fc55           
+DRV_Boundary.shp            7436     c6afbab79c22661d   1       
+DRV_Boundary.dbf            124      b1c6426a93d644a0           
+
+files fingerprinted                    20
+data state digest                      2547949e5806
+
+Comparing this table with the one in the reference outputs shows which
+layers, if any, differ from the published data.

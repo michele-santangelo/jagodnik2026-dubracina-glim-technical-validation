@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+
+# The input data are not versioned here: the inventory is published on Zenodo,
+# and the Jagodnik et al. (2020) inventory is not public (see README).
+data/
+
+# Outputs that carry feature-level information or geometry derived from the
+# non-public Jagodnik et al. (2020) inventory
+outputs/04_jom_feature_match.csv
+outputs/04_increment_by_landslide.csv
+outputs/12_overlap_map.gpkg
+outputs/12_overlap_map.png
+
+# Ancillary files written by GDAL
+*.aux.xml

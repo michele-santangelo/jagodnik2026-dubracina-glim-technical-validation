@@ -1,0 +1,61 @@
+==============================================================================
+10 - Where the submitted description did not describe the data
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+1 - The depth rule as submitted
+-------------------------------
+Submitted wording: two polygons means deep-seated, one polygon means
+shallow, no exception. Landslides that contradict it, by type pair:
+
+source+deposit  landslides
+--------------  ----------
+df+xdf          79        
+
+landslides flagged by the submitted rule 79
+Every one is a debris flow. No other type pair appears, which is why
+the exception is specific to debris flows and not to flows in general,
+and why the correction belongs in the text and not in the data.
+
+2 - More than two polygons for one landslide
+--------------------------------------------
+layer  lds_id  polygons  classes   
+-----  ------  --------  ----------
+O_I    690     3         df+xdf+xdf
+
+landslides represented by more than two polygons 1
+
+3 and 4 - The published code dictionaries
+-----------------------------------------
+table    code  discrepancy                         polygons
+-------  ----  ----------------------------------  --------
+Table 2  wxdf  in the data, absent from the table  1       
+Table 2  wrf   in the table, absent from the data  0       
+Table 5  lake  in the data, absent from the table  1       
+
+Summary
+-------
+correction                 records
+-------------------------  -------
+depth rule (debris flows)  79     
+more than two polygons     1      
+code dictionaries          3      
+TOTAL                      83     
+
+None of these is a defect in the deposited data, and none is counted
+in the integrity table of script 09, which measures the data. They are
+corrections the checks forced on the manuscript itself, and they are
+the strongest evidence that the validation was not circular: a check
+that only restated the rules used to make the data could not have
+contradicted them.

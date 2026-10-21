@@ -1,0 +1,68 @@
+==============================================================================
+12 - The three-way overlap with the previous inventory
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+Areas of each part of the partition
+-----------------------------------
+Analysis domain: 16.4937 km2, the pilot area of
+the previous inventory clipped to the study boundary. Areas are planar
+on EPSG:3765; ratios are unaffected by the basis (see script 03).
+
+subset of the present inventory  class                   km2 / value  % of domain
+-------------------------------  ----------------------  -----------  -----------
+all generations + rockfalls      both                    1.7049       10.3       
+all generations + rockfalls      only_new                8.2014       49.7       
+all generations + rockfalls      only_previous           1.0011       6.1        
+all generations + rockfalls      neither                 5.5863       33.9       
+all generations + rockfalls      index of agreement      0.156                   
+all generations + rockfalls      their area recovered %  63.0                    
+all generations + rockfalls      our area also theirs %  17.2                    
+old class O1-O4 + rockfalls      both                    1.3408       8.1        
+old class O1-O4 + rockfalls      only_new                3.5337       21.4       
+old class O1-O4 + rockfalls      only_previous           1.3652       8.3        
+old class O1-O4 + rockfalls      neither                 10.2540      62.2       
+old class O1-O4 + rockfalls      index of agreement      0.215                   
+old class O1-O4 + rockfalls      their area recovered %  49.5                    
+old class O1-O4 + rockfalls      our area also theirs %  27.5                    
+old class O1-O4 only             both                    0.9326       5.7        
+old class O1-O4 only             only_new                3.4746       21.1       
+old class O1-O4 only             only_previous           1.7734       10.8       
+old class O1-O4 only             neither                 10.3131      62.5       
+old class O1-O4 only             index of agreement      0.151                   
+old class O1-O4 only             their area recovered %  34.5                    
+old class O1-O4 only             our area also theirs %  21.2                    
+
+Why the index of agreement is low while 95.6 % of their polygons are
+recovered. The two measure different things. Recovery asks what share of
+THEIR polygons this inventory covers, and answers 95.6 % of the polygons
+and 63.0 % of their area. The index of agreement is symmetric: it divides
+the shared area by the union, and the union is dominated by the 8.20 km2
+this inventory maps and the previous one does not. The index therefore
+measures how much has been added, not how far the two disagree where both
+looked. The ground neither maps, 5.59 km2, does not enter it at all.
+
+A caution on the restricted comparison. Dropping to the old class alone
+removes the rockfall layer from OUR side while leaving the rock-fall
+chutes and cliff sectors on THEIRS, which is why the ground mapped only
+by the previous inventory grows from 1.00 to 1.77 km2 - visibly, along
+the north-eastern carbonate margin. The like-for-like restriction is the
+old class WITH the rockfall layer, and on that subset the index of
+agreement is the highest of the three, because removing the very old and
+relict polygons removes area that is ours alone without removing
+agreement. That is the same result the increment analysis reports from
+the other direction.
+
+map for inspection in a GIS            outputs/12_overlap_map.gpkg
+map as an image                        outputs/12_overlap_map.png

@@ -1,0 +1,137 @@
+==============================================================================
+01 - G-LIM descriptive statistics
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+
+Polygons and landslides per layer
+---------------------------------
+layer  age  gen  polygons  landslides  1-poly  2-poly  >2-poly  sum Shape_Area km2  sum geometry km2
+-----  ---  ---  --------  ----------  ------  ------  -------  ------------------  ----------------
+O_I    O    1    1314      755         197     557     1        7.4542              7.4565          
+O_II   O    2    422       238         54      184     0        1.9125              1.9130          
+O_III  O    3    135       77          19      58      0        0.2283              0.2284          
+O_IV   O    4    6         4           2       2       0        0.0028              0.0028          
+VO_I   VO   1    30        17          4       13      0        4.1647              4.1659          
+VO_II  VO   2    6         3           0       3       0        0.2581              0.2582          
+VO_R   VOR  -    6         3           0       3       0        6.6788              6.6808          
+TOTAL            1919      1097        276     820     1        20.6994             20.7055         
+
+'landslides' counts distinct lds_id values *within* each layer.
+Note that lds_id is only unique within a layer (see 02_qc_database),
+so the total is the sum of the per-layer counts, not a global distinct count.
+
+Widespread (clustered / coalescent) process units
+-------------------------------------------------
+layer  lds_id  lds_class  area m2
+-----  ------  ---------  -------
+O_I    396     ws         3107.9 
+O_I    352     ws         7872.8 
+O_I    353     ws         1931.4 
+O_II   52      wxdf       7915.4 
+O_II   42      ws         6567.7 
+
+landslides, all                        1097
+landslides, widespread units only      5
+landslides, excluding widespread units 1092
+
+Counts by relative-age class
+----------------------------
+relative age  landslides  excl. widespread
+------------  ----------  ----------------
+O             1074        1069            
+VO            20          20              
+VOR           3           3               
+TOTAL         1097        1092            
+
+The manuscript reports 1,071 O + 20 VO + 3 VOR = 1,094 landslides.
+  [!] the data give 1097 landslides including widespread units and 1092 excluding them; neither equals 1,094, so the counts in the text predate the current shapefiles and must be recomputed
+
+lds_class frequency (polygons)
+------------------------------
+lds_class  polygons  source area?  widespread?
+---------  --------  ------------  -----------
+df         102       no            no         
+ds         46        no            no         
+f          17        no            no         
+rav        12        no            no         
+rsl        6         no            no         
+s          770       no            no         
+sef        63        no            no         
+ws         4         no            yes        
+wxdf       1         yes           yes        
+xdf        157       yes           no         
+xds        46        yes           no         
+xf         17        yes           no         
+xrav       12        yes           no         
+xrsl       6         yes           no         
+xs         601       yes           no         
+xsef       59        yes           no         
+
+Landslide type per landslide (from the deposit polygon)
+-------------------------------------------------------
+type  landslides  %   
+----  ----------  ----
+s     770         70.2
+df    178         16.2
+sef   63          5.7 
+ds    46          4.2 
+f     17          1.5 
+rav   12          1.1 
+rsl   6           0.5 
+ws    4           0.4 
+wdf   1           0.1 
+
+uncert code frequency (polygons)
+--------------------------------
+uncert  detection  delineation  classification  polygons
+------  ---------  -----------  --------------  --------
+000     0          0            0               1803    
+001     0          0            1               108     
+010     0          1            0               2       
+100     1          0            0               2       
+110     1          1            0               2       
+111     1          1            1               2       
+
+depth frequency
+---------------
+depth        polygons  landslides
+-----------  --------  ----------
+deep-seated  1482      741       
+shallow      437       356       
+
+Rockfall and geomorphological layers
+------------------------------------
+rockfall polygons                      486
+rockfall cumulative area (km2)         0.9396
+lds_class  polygons
+---------  --------
+rf         13      
+wxrf       279     
+xrf        194     
+
+geomorphological polygons              245
+geomorphology cumulative area (km2)    6.6917
+geom_class  polygons  area km2
+----------  --------  --------
+ad          7         1.7555  
+af          39        0.4028  
+gl          107       1.6929  
+lake        1         0.3828  
+oaf         1         0.4823  
+ot          13        1.4426  
+t           77        0.5326  
+
+outputs/01_landslide_counts.csv holds one record per landslide with
+source, deposit and total area, so that the area of a landslide does not
+have to be computed by summing Shape_Area over its polygons.

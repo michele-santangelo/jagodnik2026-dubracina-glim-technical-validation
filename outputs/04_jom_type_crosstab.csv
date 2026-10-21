@@ -1,0 +1,10 @@
+previous_layer,<no overlap>,ds,f,rav,s,sef,ws,wxrf,xdf,xds,xf,xrav,xrf,xrsl,xs,xsef
+Debris slide_Flow,1,0,10,4,85,14,3,0,0,0,2,0,0,0,7,5
+Debris slide,1,0,4,24,229,9,1,0,0,0,10,0,0,0,31,12
+Fall_Chutes,1,1,0,0,0,0,0,11,5,0,0,0,23,0,0,0
+RFall_Cliff,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
+RFall_Slope,0,0,0,0,0,0,0,1,1,1,0,0,1,0,1,0
+RIrregSlide,0,0,0,0,0,0,0,5,1,1,0,0,12,1,0,0
+RRotatSlide,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0
+RSDeformation,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+RotatSlide,0,0,0,0,4,0,0,0,0,0,1,0,0,0,0,0

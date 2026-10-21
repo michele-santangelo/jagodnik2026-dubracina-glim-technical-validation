@@ -1,0 +1,225 @@
+==============================================================================
+07 - Geometric and topological quality control
+==============================================================================
+python                                 3.10.12
+GDAL                                   3.8.4
+shapely                                2.0.6
+data                                   data
+Jagodnik et al. (2020) data            found
+data state digest                      2547949e5806
+
+The data state digest identifies the exact version of the input
+shapefiles these numbers describe. If it differs between two reports,
+the data changed in between and the numbers are not comparable.
+Run 00_data_fingerprint.py for the per-file content hashes.
+
+Every offending record is keyed by a STABLE attribute identifier, because
+shapefile feature ids are positional: deleting one record renumbers every
+record after it. The keys are (lds_id/lds_class) for the landslide layers
+and gm_id for the geomorphological layer. The rockfall layer has no usable
+key, since Id is 0 for all 486 records, so it is located by centroid.
+Columns marked fid* are positional hints only, valid for the current files.
+Tolerances: overlap > 1.0 m2, segment < 0.1 m,
+spike angle < 3.0 deg, degenerate area < 10.0 m2,
+sliver shape index > 6.0, near-duplicate IoU > 0.98.
+
+A - Invalid geometries
+----------------------
+layer  key  class  area m2  fid*  reason
+-----  ---  -----  -------  ----  ------
+-      -    -      -        -     none  
+
+B - Exact duplicate geometries
+------------------------------
+layer  key  class  area m2  fid*  identical to
+-----  ---  -----  -------  ----  ------------
+-      -    -      -        -     none        
+
+B2 - Near-duplicate geometries within a layer
+---------------------------------------------
+Pairs with IoU > 0.98: the same landform digitised twice.
+
+layer  key A  key B  class A  class B  IoU  area m2  fid* A/B
+-----  -----  -----  -------  -------  ---  -------  --------
+-      -      -      -        -        -    -        -       
+
+B3 - Identical geometries across different layers
+-------------------------------------------------
+A landslide copied from one generation layer into another.
+
+layer  key  class  area m2  fid*  also in
+-----  ---  -----  -------  ----  -------
+-      -    -      -        -     none   
+
+C - Degenerate polygons
+-----------------------
+Area below 10.0 m2, or fewer than four distinct vertices.
+
+layer  key  class  area m2  vertices  Shape_Area attr  centroid E N  fid*
+-----  ---  -----  -------  --------  ---------------  ------------  ----
+-      -    -      -        -         -                -             -   
+
+C2 - Sliver polygons
+--------------------
+Shape index above 6.0 (a circle is 1.0). Long, narrow polygons
+are expected for debris-flow channels and talus strips, so this list needs
+visual triage rather than blanket correction.
+
+layer      key      class  area m2   perimeter m  shape index  fid*
+---------  -------  -----  --------  -----------  -----------  ----
+rockfalls  21/xrf   xrf    116914.3  12576.8      10.4         20  
+rockfalls  3/xrf    xrf    31682.1   4995.1       7.9          2   
+rockfalls  24/xrf   xrf    11969.0   2543.1       6.6          23  
+rockfalls  125/xrf  xrf    36866.0   4340.8       6.4          124 
+
+D - Vertex-level defects
+------------------------
+total vertices in the polygon layers   186646
+repeated (zero-length) vertices        0
+segments shorter than 0.1 m            580
+spikes sharper than 3.0 deg            1
+
+layer          key  class  repeated  short seg  spikes  vertices  fid*
+-------------  ---  -----  --------  ---------  ------  --------  ----
+Geomorphology  104  gl     0         5          1       5470      96  
+
+E - Overlaps between different landslides of the same generation
+----------------------------------------------------------------
+Two landslides in one generation layer should be adjacent at most, never
+superimposed: a superposition is what defines a different generation.
+Overlaps here are therefore either digitising errors or landslides that
+belong in different generation layers.
+
+layer  key A  key B  overlap m2  % of smaller  fid* A/B
+-----  -----  -----  ----------  ------------  --------
+-      -      -      -           -             -       
+
+overlapping pairs within one generation layer 0
+
+F - Source area and deposit of the same landslide
+-------------------------------------------------
+The two polygons should share a boundary: no overlap, no gap. An overlap
+double counts the area; a gap leaves a strip of unmapped ground between
+the scarp and the deposit of one landslide.
+
+F1 - overlapping source and deposit
+layer  lds_id  class A  class B  overlap m2  % of smaller  fid* A/B
+-----  ------  -------  -------  ----------  ------------  --------
+-      -       -        -        -           -             -       
+
+F2 - a real gap between source and deposit
+layer  lds_id  class A  class B  gap m  fid* A/B
+-----  ------  -------  -------  -----  --------
+O_I    329     xdf      df       33.17  346/349 
+O_I    92      xdf      df       21.39  150/151 
+
+F3 - separated by less than 0.01 m: a snapping artefact, not a gap
+layer  lds_id  class A  class B  gap m  fid* A/B
+-----  ------  -------  -------  -----  --------
+-      -       -        -        -      -       
+
+These four are of the order of 1e-10 m: the shared boundary was digitised
+twice and the two copies differ in the last bits of the coordinate. Nothing
+to correct by hand; a snap-to-vertex pass at 0.001 m would remove them.
+
+landslides with overlapping source and deposit 0
+landslides with a real gap between the two polygons 2
+landslides separated only by a snapping artefact 0
+
+G - One polygon of a landslide contained in the other
+-----------------------------------------------------
+layer  lds_id  inner class  outer class  inner area m2  outer area m2  fid* inner/outer
+-----  ------  -----------  -----------  -------------  -------------  ----------------
+-      -       -            -            -              -              -               
+
+H - Interior rings (holes)
+--------------------------
+A hole in a landslide polygon means an area inside the landslide that was
+deliberately excluded. Confirm each one is intentional and not a
+digitising artefact.
+
+layer          key      class  holes  smallest m2  largest m2  total m2  centroid E N  
+-------------  -------  -----  -----  -----------  ----------  --------  --------------
+rockfalls      21/xrf   xrf    12     165.6        6390.3      15124.0   359356 5010461
+rockfalls      3/xrf    xrf    9      109.8        797.6       3121.3    361667 5006701
+rockfalls      125/xrf  xrf    8      81.4         1632.2      4543.8    359842 5009678
+rockfalls      116/xrf  xrf    3      123.6        1068.0      1924.9    360218 5008978
+rockfalls      124/xrf  xrf    2      351.1        427.7       778.8     360139 5009185
+Geomorphology  277      t      2      255.0        351.8       606.8     360247 5008413
+rockfalls      18/xrf   xrf    1      222.8        222.8       222.8     358980 5011008
+rockfalls      104/xrf  xrf    1      135.7        135.7       135.7     360402 5008151
+rockfalls      120/xrf  xrf    1      230.1        230.1       230.1     360016 5009279
+Geomorphology  104      gl     1      3966.0       3966.0      3966.0    359131 5008832
+
+I - Overlaps inside the geomorphological layer
+----------------------------------------------
+Surface-deposit units of different classes describe different materials at
+the same place, so overlaps need a decision: either the units are nested by
+design, and this must be documented, or the boundaries are wrong.
+
+gm_id A  gm_id B  class A  class B  overlap m2  % of smaller  fid* A/B
+-------  -------  -------  -------  ----------  ------------  --------
+-        -        -        -        -           -             -       
+
+overlapping pairs of geomorphological units 0
+
+J - Study-area boundary
+-----------------------
+property              value      
+--------------------  -----------
+features              1          
+valid                 yes        
+geometry type         Polygon    
+vertices              454        
+interior rings        0          
+grid area km2         38.4159    
+ellipsoidal area km2  38.4043    
+area_km2 attribute    38.404293  
+attribute basis       ellipsoidal
+repeated vertices     0          
+segments < 0.1 m      0          
+spikes < 3.0 deg      0          
+
+Summary by check
+----------------
+check                 records  severity
+--------------------  -------  --------
+C2_sliver             4        check   
+D_vertex_defect       1        check   
+F_source_deposit_gap  2        check   
+H_holes               10       check   
+total records flagged                  17
+
+Severity 'fix' marks a defect that is wrong in any reading: an invalid
+geometry, a duplicate, a fragment, an overlap between the two polygons of
+one landslide. Severity 'check' marks something that needs a mapping
+decision and may well be correct as it stands.
+
+Worklist, ordered
+-----------------
+Grouped by what has to happen, not by check, so it can be worked through
+from top to bottom. Counts are records, not pairs.
+
+2 - Needs a mapping decision: inspect, then correct or document
+    Geomorphology    3 records   D_vertex_defect, H_holes
+                   gm_id: 104, 277
+    O_I              2 records   F_source_deposit_gap
+                   key: 329/xdf, 92/xdf
+    rockfalls       12 records   C2_sliver, H_holes
+                   key: 104/xrf, 116/xrf, 120/xrf, 124/xrf, 125/xrf, 18/xrf, 21/xrf, 24/xrf, 3/xrf
+
+
+Selection expressions
+---------------------
+Built on the attribute keys, so they keep working after records are deleted.
+
+  DRV_GLIM_Geomorphology
+    "gm_id" IN (104, 277)
+
+  DRV_GLIM_O_I
+    "lds_id" IN (92, 329)
+    per polygon: ("lds_id"=92 AND "lds_class"='xdf') OR ("lds_id"=329 AND "lds_class"='xdf')
+
+  DRV_GLIM_rockfalls
+    no stable key: located by centroid, see the CSV
+

@@ -1,0 +1,168 @@
+check,layer,feature,description
+B_invalid_geometry,DRV_GLIM_VO_I,11,Ring Self-intersection[360167.253999999 5007707.7826]
+B_invalid_geometry,DRV_GLIM_rockfalls,0,Ring Self-intersection[361407.795366024 5006955.55179016]
+B_multipart,DRV_GLIM_O_I,103,"2 parts, class xrav"
+B_multipart,DRV_GLIM_O_I,690,"3 parts, class xdf"
+B_multipart,DRV_GLIM_O_I,742,"2 parts, class xdf"
+B_multipart,DRV_GLIM_O_I,774,"3 parts, class xdf"
+B_multipart,DRV_GLIM_O_II,56,"2 parts, class xdf"
+B_multipart,DRV_GLIM_VO_I,11,"2 parts, class s"
+B_multipart,DRV_GLIM_VO_I,3,"2 parts, class xs"
+B_multipart,DRV_GLIM_VO_II,3,"2 parts, class xrav"
+B_multipart,DRV_GLIM_rockfalls,0,"11 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,0,"2 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,0,"2 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,0,"2 parts, class xrf"
+B_multipart,DRV_GLIM_rockfalls,0,"3 parts, class xrf"
+C_null,DRV_GLIM_O_I,lds_area,1314 NULL values
+C_null,DRV_GLIM_O_I,cluster_id,1314 NULL values
+C_null,DRV_GLIM_O_II,lds_area,422 NULL values
+C_null,DRV_GLIM_O_II,cluster_id,422 NULL values
+C_null,DRV_GLIM_O_III,lds_area,135 NULL values
+C_null,DRV_GLIM_O_III,cluster_id,135 NULL values
+C_null,DRV_GLIM_O_IV,lds_area,6 NULL values
+C_null,DRV_GLIM_O_IV,cluster_id,6 NULL values
+C_null,DRV_GLIM_VO_I,lds_area,30 NULL values
+C_null,DRV_GLIM_VO_I,cluster_id,30 NULL values
+C_null,DRV_GLIM_VO_II,lds_area,6 NULL values
+C_null,DRV_GLIM_VO_II,cluster_id,6 NULL values
+C_null,DRV_GLIM_VO_R,lds_area,6 NULL values
+C_null,DRV_GLIM_VO_R,cluster_id,6 NULL values
+C_null,DRV_GLIM_rockfalls,Shape_Area,486 NULL values
+D_undocumented_code,landslide layers,wrf,lds_class not in Table 2 (279 polygons)
+D_unused_code,Table 2,wxrf,documented but absent from data
+E_not_globally_unique,all landslide layers,-,231 lds_id values are reused in more than one layer
+E_no_identifier,DRV_GLIM_rockfalls,-,identifier constant for all 486 features
+E_rockfall_missing_fields,DRV_GLIM_rockfalls,-,"no uncert, depth attribute"
+F_pairing,DRV_GLIM_O_I,673,s+xdf: source and deposit have different landslide types
+G_mixed_depth,DRV_GLIM_O_I,673,polygons of one landslide carry different depth values
+H_depth_rule,DRV_GLIM_O_I,673,the polygons of one landslide disagree on depth
+H_depth_rule,DRV_GLIM_O_I,384,"depth='shallow' but the stated criteria require 'deep-seated' (1 polygons, xf)"
+H_depth_rule,DRV_GLIM_O_IV,1,"depth='deep-seated' but the stated criteria require 'shallow' (1 polygons, s)"
+H_depth_rule,DRV_GLIM_O_IV,2,"depth='deep-seated' but the stated criteria require 'shallow' (1 polygons, s)"
+J_area_mismatch,DRV_GLIM_O_I,104/xdf,Shape_Area=1453.84 m2 but grid=42000.19 and geodesic=41987.25 m2
+J_area_mismatch,DRV_GLIM_O_I,690/xdf,Shape_Area=7597.68 m2 but grid=31579.43 and geodesic=31569.93 m2
+J_area_mismatch,DRV_GLIM_O_III,8/xds,Shape_Area=1106.70 m2 but grid=3895.25 and geodesic=3894.04 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,168,Shape_Area=68717.28 m2 but grid=57874.82 and geodesic=57859.00 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,172,Shape_Area=35144.05 m2 but grid=26459.74 and geodesic=26451.64 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,174,Shape_Area=55862.97 m2 but grid=28456.56 and geodesic=28448.42 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,175,Shape_Area=9722.95 m2 but grid=2382.16 and geodesic=2381.49 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,176,Shape_Area=16273.47 m2 but grid=9430.60 and geodesic=9427.68 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,177,Shape_Area=40855.04 m2 but grid=2562.28 and geodesic=2561.46 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,178,Shape_Area=48887.15 m2 but grid=44759.49 and geodesic=44745.04 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,181,Shape_Area=10826.38 m2 but grid=43597.91 and geodesic=43585.18 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,191,Shape_Area=137637.91 m2 but grid=131341.76 and geodesic=131302.80 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,192,Shape_Area=98226.40 m2 but grid=50520.41 and geodesic=50506.16 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,193,Shape_Area=382831.95 m2 but grid=385042.50 and geodesic=384931.72 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,194,Shape_Area=162331.44 m2 but grid=150933.74 and geodesic=150887.83 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,195,Shape_Area=58220.51 m2 but grid=55066.16 and geodesic=55049.15 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,196,Shape_Area=60173.70 m2 but grid=30117.30 and geodesic=30107.62 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,210,Shape_Area=178967.30 m2 but grid=2.39 and geodesic=2.39 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,211,Shape_Area=178967.30 m2 but grid=626.70 and geodesic=626.50 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,212,Shape_Area=178967.30 m2 but grid=3635.83 and geodesic=3634.69 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,213,Shape_Area=178967.30 m2 but grid=0.17 and geodesic=0.17 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,214,Shape_Area=178967.30 m2 but grid=22690.61 and geodesic=22683.54 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,215,Shape_Area=35144.05 m2 but grid=3822.28 and geodesic=3821.12 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,216,Shape_Area=35144.05 m2 but grid=240.46 and geodesic=240.39 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,217,Shape_Area=98226.40 m2 but grid=1.40 and geodesic=1.40 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,218,Shape_Area=98226.40 m2 but grid=47704.60 and geodesic=47691.22 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,219,Shape_Area=16273.47 m2 but grid=1925.25 and geodesic=1924.65 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,220,Shape_Area=18935.55 m2 but grid=1453.47 and geodesic=1453.04 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,221,Shape_Area=18935.55 m2 but grid=258.36 and geodesic=258.28 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,222,Shape_Area=18935.55 m2 but grid=1096.82 and geodesic=1096.50 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,223,Shape_Area=101449.58 m2 but grid=1913.71 and geodesic=1913.16 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,224,Shape_Area=101449.58 m2 but grid=76.11 and geodesic=76.09 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,225,Shape_Area=101449.58 m2 but grid=0.04 and geodesic=0.04 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,226,Shape_Area=101449.58 m2 but grid=4854.95 and geodesic=4853.54 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,227,Shape_Area=101449.58 m2 but grid=8298.07 and geodesic=8295.67 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,228,Shape_Area=48887.15 m2 but grid=1604.47 and geodesic=1603.96 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,229,Shape_Area=178967.30 m2 but grid=4043.57 and geodesic=4042.28 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,230,Shape_Area=178967.30 m2 but grid=9670.75 and geodesic=9667.68 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,231,Shape_Area=40855.04 m2 but grid=14870.93 and geodesic=14866.14 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,232,Shape_Area=40855.04 m2 but grid=1610.95 and geodesic=1610.43 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,233,Shape_Area=60173.70 m2 but grid=203.81 and geodesic=203.75 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,234,Shape_Area=40855.04 m2 but grid=146.10 and geodesic=146.06 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,235,Shape_Area=40855.04 m2 but grid=1244.17 and geodesic=1243.78 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,236,Shape_Area=40855.04 m2 but grid=0.09 and geodesic=0.09 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,237,Shape_Area=40855.04 m2 but grid=0.31 and geodesic=0.31 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,238,Shape_Area=40855.04 m2 but grid=1268.46 and geodesic=1268.05 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,239,Shape_Area=40855.04 m2 but grid=25.97 and geodesic=25.96 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,240,Shape_Area=40855.04 m2 but grid=989.87 and geodesic=989.55 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,241,Shape_Area=60173.70 m2 but grid=25235.27 and geodesic=25227.23 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,242,Shape_Area=7685.81 m2 but grid=15.61 and geodesic=15.60 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,243,Shape_Area=7685.81 m2 but grid=20.85 and geodesic=20.84 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,244,Shape_Area=7685.81 m2 but grid=40.85 and geodesic=40.84 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,245,Shape_Area=7685.81 m2 but grid=314.24 and geodesic=314.14 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,246,Shape_Area=7685.81 m2 but grid=863.32 and geodesic=863.05 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,247,Shape_Area=58220.51 m2 but grid=47.39 and geodesic=47.37 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,248,Shape_Area=7685.81 m2 but grid=165.10 and geodesic=165.05 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,249,Shape_Area=7685.81 m2 but grid=261.00 and geodesic=260.92 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,250,Shape_Area=3929.20 m2 but grid=29.37 and geodesic=29.36 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,251,Shape_Area=3929.20 m2 but grid=217.98 and geodesic=217.91 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,252,Shape_Area=3929.20 m2 but grid=434.64 and geodesic=434.51 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,253,Shape_Area=3929.20 m2 but grid=680.62 and geodesic=680.42 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,254,Shape_Area=11246.83 m2 but grid=95.56 and geodesic=95.53 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,255,Shape_Area=11246.83 m2 but grid=357.35 and geodesic=357.25 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,256,Shape_Area=11246.83 m2 but grid=20.37 and geodesic=20.36 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,257,Shape_Area=11246.83 m2 but grid=137.90 and geodesic=137.86 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,258,Shape_Area=11246.83 m2 but grid=104.72 and geodesic=104.69 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,259,Shape_Area=11246.83 m2 but grid=124.65 and geodesic=124.62 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,260,Shape_Area=11246.83 m2 but grid=19.03 and geodesic=19.03 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,261,Shape_Area=11246.83 m2 but grid=30.53 and geodesic=30.52 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,262,Shape_Area=11246.83 m2 but grid=873.71 and geodesic=873.45 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,263,Shape_Area=11246.83 m2 but grid=1100.63 and geodesic=1100.30 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,264,Shape_Area=18935.55 m2 but grid=247.68 and geodesic=247.60 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,265,Shape_Area=18935.55 m2 but grid=0.19 and geodesic=0.19 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,266,Shape_Area=18935.55 m2 but grid=67.93 and geodesic=67.91 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,267,Shape_Area=18935.55 m2 but grid=555.77 and geodesic=555.60 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,268,Shape_Area=18935.55 m2 but grid=9.71 and geodesic=9.71 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,269,Shape_Area=18935.55 m2 but grid=16.59 and geodesic=16.59 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,270,Shape_Area=18935.55 m2 but grid=20.92 and geodesic=20.91 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,271,Shape_Area=9722.95 m2 but grid=10.65 and geodesic=10.65 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,272,Shape_Area=9722.95 m2 but grid=32.04 and geodesic=32.03 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,273,Shape_Area=9722.95 m2 but grid=3473.09 and geodesic=3472.12 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,274,Shape_Area=9722.95 m2 but grid=497.09 and geodesic=496.96 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,275,Shape_Area=60595.09 m2 but grid=49.08 and geodesic=49.07 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,276,Shape_Area=60595.09 m2 but grid=5.97 and geodesic=5.97 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,277,Shape_Area=60595.09 m2 but grid=3.42 and geodesic=3.42 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,278,Shape_Area=60595.09 m2 but grid=11.13 and geodesic=11.13 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,279,Shape_Area=60595.09 m2 but grid=31.64 and geodesic=31.63 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,280,Shape_Area=60595.09 m2 but grid=57547.18 and geodesic=57531.06 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,281,Shape_Area=178967.30 m2 but grid=0.84 and geodesic=0.84 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,282,Shape_Area=178967.30 m2 but grid=5.39 and geodesic=5.38 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,283,Shape_Area=178967.30 m2 but grid=8.04 and geodesic=8.03 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,284,Shape_Area=178967.30 m2 but grid=2811.27 and geodesic=2810.41 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,285,Shape_Area=137637.91 m2 but grid=9925.87 and geodesic=9922.89 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,286,Shape_Area=68717.28 m2 but grid=9091.43 and geodesic=9088.98 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,287,Shape_Area=55862.97 m2 but grid=1779.39 and geodesic=1778.88 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,288,Shape_Area=55862.97 m2 but grid=6605.07 and geodesic=6603.17 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,289,Shape_Area=101449.58 m2 but grid=3395.05 and geodesic=3394.07 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,290,Shape_Area=10826.38 m2 but grid=0.59 and geodesic=0.59 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,291,Shape_Area=10826.38 m2 but grid=0.80 and geodesic=0.80 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,292,Shape_Area=40855.04 m2 but grid=250.39 and geodesic=250.31 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,293,Shape_Area=10826.38 m2 but grid=4267.94 and geodesic=4266.69 m2
+J_area_mismatch,DRV_GLIM_Geomorphology,294,Shape_Area=178967.30 m2 but grid=9348.50 and geodesic=9345.62 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"210, 211, 212, 213, 214, 229, 230, 281, 282, 283, 284, 294",12 features share Shape_Area=178967.30 m2; their geometries sum to 52844.1 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"177, 231, 232, 234, 235, 236, 237, 238, 239, 240, 292",11 features share Shape_Area=40855.04 m2; their geometries sum to 22969.5 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"220, 221, 222, 264, 265, 266, 267, 268, 269, 270",10 features share Shape_Area=18935.55 m2; their geometries sum to 3727.4 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"254, 255, 256, 257, 258, 259, 260, 261, 262, 263",10 features share Shape_Area=11246.83 m2; their geometries sum to 2864.4 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"242, 243, 244, 245, 246, 248, 249",7 features share Shape_Area=7685.81 m2; their geometries sum to 1681.0 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"223, 224, 225, 226, 227, 289",6 features share Shape_Area=101449.58 m2; their geometries sum to 18537.9 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"275, 276, 277, 278, 279, 280",6 features share Shape_Area=60595.09 m2; their geometries sum to 57648.4 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"175, 271, 272, 273, 274",5 features share Shape_Area=9722.95 m2; their geometries sum to 6395.0 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"181, 290, 291, 293",4 features share Shape_Area=10826.38 m2; their geometries sum to 47867.2 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"250, 251, 252, 253",4 features share Shape_Area=3929.20 m2; their geometries sum to 1362.6 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"172, 215, 216",3 features share Shape_Area=35144.05 m2; their geometries sum to 30522.5 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"174, 287, 288",3 features share Shape_Area=55862.97 m2; their geometries sum to 36841.0 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"192, 217, 218",3 features share Shape_Area=98226.40 m2; their geometries sum to 98226.4 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"196, 233, 241",3 features share Shape_Area=60173.70 m2; their geometries sum to 55556.4 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"26, 55",2 features share Shape_Area=603.92 m2; their geometries sum to 1207.8 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"168, 286",2 features share Shape_Area=68717.28 m2; their geometries sum to 66966.2 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"176, 219",2 features share Shape_Area=16273.47 m2; their geometries sum to 11355.9 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"178, 228",2 features share Shape_Area=48887.15 m2; their geometries sum to 46364.0 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"191, 285",2 features share Shape_Area=137637.91 m2; their geometries sum to 141267.6 m2
+J_stale_area_group,DRV_GLIM_Geomorphology,"195, 247",2 features share Shape_Area=58220.51 m2; their geometries sum to 55113.5 m2
+J_slivers,DRV_GLIM_Geomorphology,-,"52 polygons < 200 m2, smallest 0.044 m2"
+K_duplicate_geometry,DRV_GLIM_Geomorphology,26,identical geometry shared with [55]
+L_lone_source,DRV_GLIM_O_I,384,xf: source area with no deposit
+L_lone_source,DRV_GLIM_O_I,384,adjacent deposit lds_id=383 (f) at 0.000 m: candidate split landslide
