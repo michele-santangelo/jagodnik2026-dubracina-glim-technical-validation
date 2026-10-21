@@ -3,7 +3,7 @@ message: "If you use this code, please cite the paper below and the archived ver
 title: "Dubračina Valley G-LIM: technical validation code"
 version: 1.0.0
 license: MIT
-repository-code: "https://github.com/michele-santangelo/jagodnik2026-dubracina-glim"
+repository-code: "https://github.com/michele-santangelo/jagodnik2026-dubracina-glim-technical-validation"
 authors:
   - family-names: Santangelo
     given-names: Michele

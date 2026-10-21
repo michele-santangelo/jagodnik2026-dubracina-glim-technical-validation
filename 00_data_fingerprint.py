@@ -2,16 +2,14 @@
 """
 00 - Fingerprint the input data.
 
-The inventory is edited between analysis runs. Without a record of which
-version of the shapefiles produced a given number, two reports can disagree
-for no reason other than that the data changed in between: during the
-correction round the source/deposit overlaps in DRV_GLIM_O_I were corrected
-while the checks were being run, and the same check produced five findings and
-then none.
+Checks that the data being analysed are exactly the data the paper describes.
 
-This script writes the content hash, size and feature count of every input
-file, plus a single digest for the whole state. Diff the CSV against the one in
-the reference outputs to see exactly which layer differs.
+The script writes the SHA-256 content hash, size and feature count of every
+input layer, plus a single digest for the whole set. The same digest is
+printed at the top of every report. If it matches the one in the reference
+outputs (see README), the results are directly comparable with those of the
+paper; if it does not, comparing this CSV with the reference one shows which
+layer differs.
 
 Output: outputs/00_data_fingerprint.txt
         outputs/00_data_fingerprint.csv

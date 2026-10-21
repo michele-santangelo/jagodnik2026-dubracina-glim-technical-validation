@@ -576,9 +576,8 @@ def _input_files():
 def data_state():
     """Fingerprint the input data so every report says which version it describes.
 
-    The inventory was edited between analysis runs, so a number without a data
-    state is not reproducible: two reports can disagree simply because the
-    shapefiles changed in between.
+    Results are comparable only when they were computed from the same data, so
+    every report records which data it describes.
 
     The digest is a short hash over the SHA-256 content hashes of the input
     files, so it depends on their content only, not on where or when they were
