@@ -156,4 +156,4 @@ released separately under CC BY 4.0.
 
 ## Contact
 
-Michele Santangelo, CNR IRPI — michele.santangelo@cnr.it
+Michele Santangelo, CNR-GEO (National Research Council of Italy, Institute of Geosciences) — michele.santangelo@cnr.it
