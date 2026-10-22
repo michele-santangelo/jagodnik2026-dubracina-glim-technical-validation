@@ -10,8 +10,8 @@ landslide inventory map (G-LIM) of the Dubračina Valley, Croatia, described in
 
 The inventory itself is published separately, under CC BY 4.0:
 
-> Dubračina Valley geomorphological landslide inventory (DRV_GLIM).
-> Zenodo. https://doi.org/10.5281/zenodo.19813035
+> Jagodnik, P., Fiorucci, F., Bernat Gazibara, S. & Santangelo, M.
+> Geomorphological landslide inventory of the Dubračina Valley using pseudo-stereoscopic LiDAR hillshade maps. Version 2. Zenodo. https://doi.org/10.5281/zenodo.22814494
 
 Every number in the Technical Validation section of the paper is produced by
 these scripts from the published data, with a single command.
@@ -53,7 +53,7 @@ matplotlib 3.10.8. No network access and no proprietary software are required.
 
 ## Running
 
-1. Download the data record (https://doi.org/10.5281/zenodo.19813035) and
+1. Download version 2 of the data record (https://doi.org/10.5281/zenodo.22814494) and
    place its layers in `data/`, so that `data/DRV_GLIM_O_I.shp` and the other
    layers sit directly in that folder. To keep them elsewhere, set
    `GLIM_DATA=/path/to/layers`.

@@ -1,7 +1,7 @@
 {
   "title": "Dubračina Valley G-LIM: technical validation code",
   "upload_type": "software",
-  "description": "<p>Code for the quality control and technical validation of the geomorphological landslide inventory map (G-LIM) of the Dubračina Valley, Croatia, described in Jagodnik, Fiorucci, Bernat Gazibara &amp; Santangelo, <em>Geomorphological landslide inventory of the Dubračina Valley using pseudo-stereoscopic LiDAR hillshade maps</em>, Scientific Data (2026). Every number in the Technical Validation section of the paper is produced by these scripts from the published inventory (doi:10.5281/zenodo.19813035).</p>",
+  "description": "<p>Code for the quality control and technical validation of the geomorphological landslide inventory map (G-LIM) of the Dubračina Valley, Croatia, described in Jagodnik, Fiorucci, Bernat Gazibara &amp; Santangelo, <em>Geomorphological landslide inventory of the Dubračina Valley using pseudo-stereoscopic LiDAR hillshade maps</em>, Scientific Data (2026). Every number in the Technical Validation section of the paper is produced by these scripts from the published inventory (doi:10.5281/zenodo.22814494).</p>",
   "creators": [
     {
       "name": "Santangelo, Michele",
@@ -21,7 +21,7 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.19813035",
+      "identifier": "10.5281/zenodo.22814494",
       "relation": "references",
       "resource_type": "dataset",
       "scheme": "doi"
